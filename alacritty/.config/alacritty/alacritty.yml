@@ -1,0 +1,85 @@
+# Author: Hans Bala
+# Purpose: Alacritty config file
+# Date Created: Tue March 10 00:46:34 IST 2020
+# Date Modified: Tue May 26 00:47:30 IST 2020
+
+# Window configuration
+window:
+  dimensions:
+    columns: 120
+    lines: 90
+  padding:
+    x: 0
+    y: 0
+  decorations: none
+  startup_mode: Maximized
+
+scrolling:
+  history: 10000
+
+# Font configuration
+font:
+  # Normal (roman) font face
+  normal:
+    family: monospace
+
+  size: 15.0
+
+# Color schemes
+schemes:
+  molokai: &molokai
+    # Primary colors
+    primary:
+      background: '0x121212'
+      foreground: '0xbbbbbb'
+    # Normal colors
+    normal:
+      black:   '0x121212'
+      red:     '0xfa2573'
+      green:   '0x98e123'
+      yellow:  '0xdfd460'
+      blue:    '0x1080d0'
+      magenta: '0x8700ff'
+      cyan:    '0x43a8d0'
+      white:   '0xbbbbbb'
+    # Bright colors
+    bright:
+      black:   '0x555555'
+      red:     '0xf6669d'
+      green:   '0xb1e05f'
+      yellow:  '0xfff26d'
+      blue:    '0x00afff'
+      magenta: '0xaf87ff'
+      cyan:    '0x51ceff'
+      white:   '0xffffff'
+  solarized_dark: &solarized_dark
+    # Default colors
+    primary:
+      background: '#002b36' # base03
+      foreground: '#839496' # base0
+    # Cursor colors
+    cursor:
+      text:   '#002b36' # base03
+      cursor: '#839496' # base0
+    # Normal colors
+    normal:
+      black:   '#073642' # base02
+      red:     '#dc322f' # red
+      green:   '#859900' # green
+      yellow:  '#b58900' # yellow
+      blue:    '#268bd2' # blue
+      magenta: '#d33682' # magenta
+      cyan:    '#2aa198' # cyan
+      white:   '#eee8d5' # base2
+    # Bright colors
+    bright:
+      black:   '#586e75' # base01
+      red:     '#cb4b16' # orange
+      green:   '#586e75' # base01
+      yellow:  '#657b83' # base00
+      blue:    '#839496' # base0
+      magenta: '#6c71c4' # violet
+      cyan:    '#93a1a1' # base1
+      white:   '#fdf6e3' # base3
+colors: *molokai
+
