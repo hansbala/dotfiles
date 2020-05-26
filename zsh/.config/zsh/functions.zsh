@@ -42,3 +42,18 @@ tm() {
   fi
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
+
+# Stage all git files, prepare a commit message and push to remote
+function git_prepare() {
+    if [ -n "$BUFFER" ];
+    then
+        BUFFER="git add -A && git commit -m \"$BUFFER\" && git push"
+    fi
+    if [ -z "$BUFFER" ];
+    then
+        BUFFER="git add -A && git commit -v && git push"
+    fi
+
+    zle accept-line
+}
+zle -N git_prepare

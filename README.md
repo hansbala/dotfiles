@@ -1,21 +1,21 @@
 # Dotfiles, baby!
 
 ### 🐧 ❤️ 🚀
-As of May 2020, I completely redesigned my dotfiles to enable use of [`GNU Stow`]([https://www.gnu.org/software/stow/](https://www.gnu.org/software/stow/)) to allow for sane management of dotfiles.
+As of May 2020, I completely redesigned my dotfiles to enable use of [`GNU Stow`](https://www.gnu.org/software/stow/) to allow for sane management of dotfiles.
 
 Currenly the following programs are version controlled:
-+ [`zsh`]([https://www.zsh.org/](https://www.zsh.org/)) 
-+ [`nvim`]([https://neovim.io/](https://neovim.io/))
-+ [`alacritty`]([https://github.com/alacritty/alacritty](https://github.com/alacritty/alacritty))
-+ [`iterm2`]([https://www.iterm2.com/](https://www.iterm2.com/))
-+ [`tmux`]([https://github.com/tmux/tmux](https://github.com/tmux/tmux))
-+ [`npm`]([https://www.npmjs.com/](https://www.npmjs.com/))
++ [`zsh`](https://www.zsh.org/)
++ [`nvim`](https://neovim.io/)
++ [`alacritty`](https://github.com/alacritty/alacritty)
++ [`iterm2`](https://www.iterm2.com/)
++ [`tmux`](https://github.com/tmux/tmux)
++ [`npm`](https://www.npmjs.com/)
 
 Each of them are discussed in more detail below.
 
-Here is a screenshot of my terminal. My daily driver terminal of choice is Alacritty with the [Molokai]([https://github.com/tomasr/molokai](https://github.com/tomasr/molokai)) color scheme. I use the same color scheme on vim too!
+Here is a screenshot of my terminal. My daily driver terminal of choice is Alacritty with the [Molokai](https://github.com/tomasr/molokai) color scheme. I use the same color scheme on vim too!
 
-My backup/alternative color schemes include: [Solarized Dark]([https://ethanschoonover.com/solarized/](https://ethanschoonover.com/solarized/)) for when I really need a change from the monotony of Molokai - See what I did there :')
+My backup/alternative color schemes include: [Solarized Dark](https://ethanschoonover.com/solarized/) for when I really need a change from the monotony of Molokai - See what I did there :')
 
 ![Screen Shot 2020-05-26 at 1 40 29 AM](https://user-images.githubusercontent.com/20383602/82840975-1cc26e80-9ef2-11ea-856c-a410bb7dbecb.jpg)
 
@@ -35,12 +35,12 @@ I use ZSH as my shell of choice. As of May 2020, I moved away from the oh-my-zsh
   All the bash functions that I write end up here. Stuff like automatically 
   sshing into Brown university department computers are written in here.
   + **fzf.zsh**\
-  Special mention to the [`fzf`]([https://github.com/junegunn/fzf](https://github.com/junegunn/fzf)) command since so much of my workflow in both the shell and vim revolves around the use of fzf. Essentially, it is a fuzzy finder that allows me to quickly find files, change directories, fuzzy find tmux sessions, and even fuzzy find git files to be staged! It really is amazing!
+  Special mention to the [`fzf`](https://github.com/junegunn/fzf) command since so much of my workflow in both the shell and vim revolves around the use of fzf. Essentially, it is a fuzzy finder that allows me to quickly find files, change directories, fuzzy find tmux sessions, and even fuzzy find git files to be staged! It really is amazing!
 
 ## Neovim
 
-[`neovim`]([https://neovim.io/](https://neovim.io/)) is my editor of choice. I decided on migrating to neovim for primarily 2 reasons: 
-* Much better autocompletion using [`deoplete`]([https://github.com/Shougo/deoplete.nvim](https://github.com/Shougo/deoplete.nvim))
+[`neovim`](https://neovim.io/) is my editor of choice. I decided on migrating to neovim for primarily 2 reasons: 
+* Much better autocompletion using [`deoplete`](https://github.com/Shougo/deoplete.nvim)
 * The philosophy behind neovim
 
 + **init.vim**\
@@ -49,7 +49,7 @@ I use ZSH as my shell of choice. As of May 2020, I moved away from the oh-my-zsh
 ## Alacritty
 
 As a novice terminal user, I used iTerm2 for the longest time. It was good but there were a few inherent problems with it. It was slow on startup, commands did not update smoothly, and the configuration seemed a bit Windows-like. 
-The answer: [Alacritty]([https://github.com/alacritty/alacritty](https://github.com/alacritty/alacritty)).
+The answer: [Alacritty](https://github.com/alacritty/alacritty).
 Blazing fast using the GPU for acceleration, I experienced a 10x speed bump. Moreover, the configuration uses a dotfiles just like any other sane unix program.
 
 + **alacritty.yml**\

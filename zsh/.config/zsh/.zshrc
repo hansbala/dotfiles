@@ -33,9 +33,6 @@ zplug "peterhurford/up.zsh"
 zplug "mdumitru/git-aliases"
 # Robby Russell zsh theme
 zplug "themes/robbyrussell", from:oh-my-zsh
-# Minimal ZSH prompt
-# zplug mafredri/zsh-async, from:github
-# zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 # Better command syntax highlighting (defer:2 to load after compinit)
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # Check if the plugins have been installed; install otherwise
@@ -63,10 +60,11 @@ HYPHEN_INSENSITIVE="true"
 # Enable red dots whilst waiting for program completion
 COMPLETION_WAITING_DOTS="true"
 
-# Source the aliases file and the functions file if it exists
+# Source all necessary files
 [ -f "$ZDOTDIR"/aliases.zsh ] && source "$ZDOTDIR"/aliases.zsh
 [ -f "$ZDOTDIR"/functions.zsh ] && source "$ZDOTDIR"/functions.zsh
 [ -f "$ZDOTDIR"/fzf.zsh ] && source "$ZDOTDIR"/fzf.zsh
+[ -f "$ZDOTDIR"/keybindings.zsh ] && source "$ZDOTDIR"/keybindings.zsh
 
 # Clear the terminal screen to remove the annoying 'last login' and zplug stuff
 if [[ $(uname -s) == "Darwin" ]]; then
