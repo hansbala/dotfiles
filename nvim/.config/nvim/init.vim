@@ -13,10 +13,13 @@ call plug#begin(system('echo -n "${XDG_DATA_HOME:-$HOME/.local/share}/nvim/plugg
   Plug 'preservim/nerdtree'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'mattn/emmet-vim'
   Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-surround'
   Plug 'tomasr/molokai'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'ap/vim-css-color'
 call plug#end()
 
 " Basic settings
@@ -63,3 +66,13 @@ call plug#end()
 " management of vim config
   nnoremap <Leader>ve :vert sf $XDG_CONFIG_HOME/nvim/init.vim<CR>
   nnoremap <Leader>vs :source $XDG_CONFIG_HOME/nvim/init.vim<CR>
+
+" Language specific settings "
+  augroup webdev
+    autocmd BufRead,BufNewFile *.html,*.css setlocal shiftwidth=2 softtabstop=2 tabstop=2
+  augroup END
+  augroup vimrc
+    autocmd BufRead,BufNewFile *.vim setlocal shiftwidth=2 softtabstop=2 tabstop=2
+  augroup END
+
+
