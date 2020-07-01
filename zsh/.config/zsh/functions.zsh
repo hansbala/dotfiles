@@ -57,3 +57,8 @@ function git_prepare() {
     zle accept-line
 }
 zle -N git_prepare
+
+# SSH into ViperProbe related machines
+function vssh() {
+    ssh -i ~/.ssh/ViperProbe.pem $1
+}
