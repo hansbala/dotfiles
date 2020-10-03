@@ -65,7 +65,8 @@ COMPLETION_WAITING_DOTS="true"
 [ -f "$ZDOTDIR"/functions.zsh ] && source "$ZDOTDIR"/functions.zsh
 [ -f "$ZDOTDIR"/fzf.zsh ] && source "$ZDOTDIR"/fzf.zsh
 [ -f "$ZDOTDIR"/keybindings.zsh ] && source "$ZDOTDIR"/keybindings.zsh
-
+[ -f "$ZDOTDIR"/brown_cit_functions.zsh ] && source "$ZDOTDIR"/brown_cit_functions.zsh
+#
 # Clear the terminal screen to remove the annoying 'last login' and zplug stuff
 if [[ $(uname -s) == "Darwin" ]]; then
   clear

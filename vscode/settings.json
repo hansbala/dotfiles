@@ -1,0 +1,17 @@
+{
+    "window.zoomLevel": 0,
+    "editor.minimap.enabled": false,
+    "workbench.activityBar.visible": true,
+    "workbench.statusBar.visible": false,
+    "breadcrumbs.enabled": false,
+    "git.decorations.enabled": false,
+    "git.enabled": false,
+    "editor.cursorBlinking": "phase",
+    "editor.cursorStyle": "block",
+    "editor.fontSize": 18,
+    "editor.fontWeight": "500",
+    "explorer.confirmDelete": false,
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Just Black",
+    "editor.formatOnSave": true,
+}

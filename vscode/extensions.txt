@@ -1,0 +1,13 @@
+bobsparadox.seti-black
+christian-kohler.npm-intellisense
+christian-kohler.path-intellisense
+CoenraadS.bracket-pair-colorizer
+dbaeumer.vscode-eslint
+esbenp.prettier-vscode
+formulahendry.auto-rename-tag
+ms-python.python
+Nur.just-black
+octref.vetur
+SmukkeKim.theme-setimonokai
+vscode-icons-team.vscode-icons
+Zignd.html-css-class-completion

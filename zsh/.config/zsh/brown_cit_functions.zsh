@@ -14,7 +14,7 @@ cit_hans () {
   init_password_files()
   PSS_PATH=~/.config/passwords/.brown_password.txt
   SRV_PATH=hbala@ssh.cs.brown.edu
-  sshpass -f $PSS_PATH ssh -X $SRV_PATH
+  sshpass -f $PSS_PATH ssh $SRV_PATH
 }
 
 # Mounts the Brown CS department file system to ~/Documents/local_mnt/CIT/
@@ -32,7 +32,15 @@ cit () {
   else
     mkdir -p $MNT_PATH
     cat $PSS_PATH | sshfs -o reconnect $SRV_PATH:/home/$USER_NAM/ $MNT_PATH \
-    -ovolname=$VOL_NAME -o password_stdin
+    -ovolname=$VOL_NAME -o password_stdin \
+    && \
     echo "Successfully mounted CIT to local filesystem"
   fi
+}
+
+# Create a new python3.8 virutal environment for CSCI1410 on local filesystem
+create_venv () {
+  virtualenv --python=python3.8 venv
+  source ./venv/bin/activate
+  [ -f requirements.txt ] && pip3 install -r requirements.txt
 }

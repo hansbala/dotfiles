@@ -82,5 +82,5 @@ schemes:
       cyan:    '#93a1a1'
       white:   '#fdf6e3'
 
-colors: *solarized_dark
+colors: *molokai
 
