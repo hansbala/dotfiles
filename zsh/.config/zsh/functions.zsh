@@ -43,6 +43,11 @@ tm() {
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
 
+# Compress a video file to mp4 using ffmoeg
+compress_video() {
+    ffmpeg -i $1 -vcodec h264 -acodec mp2 $1.mp4
+}
+
 # Stage all git files, prepare a commit message and push to remote
 function git_prepare() {
     if [ -n "$BUFFER" ];

@@ -4,6 +4,7 @@ export LANG=en_US.UTF-8
 # Allow colors in ZSH
 autoload colors && colors
 setopt prompt_subst
+setopt auto_cd
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
