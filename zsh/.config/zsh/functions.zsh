@@ -45,7 +45,17 @@ tm() {
 
 # Compress a video file to mp4 using ffmoeg
 compress_video() {
-    ffmpeg -i $1 -vcodec h264 -acodec mp2 $1.mp4
+  ffmpeg -i $1 -vcodec h264 -acodec mp2 $1.mp4
+}
+
+# Function to pipe the absolute path of the current directory to the clipboard
+dirpath() {
+  pwd | pbcopy
+}
+
+# Function to pipe the absolute path of the given file to the clipboard
+filepath() {
+  echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")" | pbcopy
 }
 
 # Stage all git files, prepare a commit message and push to remote
