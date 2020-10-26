@@ -35,6 +35,7 @@ brew install bitwarden-cli
 brew install fzf
 brew install ripgrep
 brew install bat
+brew install node
 
 # Brew cask packages (mostly GUIs)
 brew cask install alfred

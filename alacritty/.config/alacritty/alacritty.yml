@@ -21,7 +21,7 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: SourceCodePro
+      family: DroidSansMono Nerd Font
 
   size: 15.0
 
