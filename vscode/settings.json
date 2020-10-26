@@ -1,7 +1,7 @@
 {
     "window.zoomLevel": 0,
     "editor.minimap.enabled": false,
-    "workbench.activityBar.visible": true,
+    "workbench.activityBar.visible": false,
     "workbench.statusBar.visible": false,
     "breadcrumbs.enabled": false,
     "git.decorations.enabled": false,
@@ -14,4 +14,5 @@
     "workbench.iconTheme": "vscode-icons",
     "workbench.colorTheme": "Just Black",
     "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
 }
