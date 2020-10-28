@@ -1,15 +1,15 @@
 #!/bin/sh
 
 # Function to ssh into hbala's CIT account on CIT machines
-cit_hans () {
-  PSS_PATH=~/.config/passwords/.brown_password.txt
-  SRV_PATH=hbala@ssh.cs.brown.edu
-  sshpass -f $PSS_PATH ssh $SRV_PATH
-}
+# cit_hans () {
+#   PSS_PATH=~/.config/passwords/.brown_password.txt
+#   SRV_PATH=hbala@ssh.cs.brown.edu
+#   sshpass -f $PSS_PATH ssh $SRV_PATH
+# }
 
 # Mounts the Brown CS department file system to ~/Documents/local_mnt/CIT/
 # A prerequisite for this is for OS X Fuse to be installed on the computer
-cit () {
+cit_mount () {
   MNT_PATH=~/Documents/local_mnt/CIT
   PSS_PATH=~/.config/passwords/.brown_password.txt
   USER_NAM=hbala
@@ -25,6 +25,13 @@ cit () {
     && \
     echo "Successfully mounted CIT to local filesystem"
   fi
+}
+
+# SSHs into my account on the Brown CIT machines
+cit () {
+  SRV_NAME=pk-ssh.cs.brown.edu
+  USR_NAME=hbala
+  ssh $USR_NAME@$SRV_NAME
 }
 
 # Create a new python3.8 virutal environment for CSCI1410 on local filesystem
