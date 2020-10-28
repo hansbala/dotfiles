@@ -18,7 +18,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export DOTFILES_LOCATION="$HOME/Development/dotfiles"
 if [[ $(uname -s) == "Linux" ]]; then
-export DOTFILES_LOCATION="$HOME/dev/dotfiles"
+  export DOTFILES_LOCATION="$HOME/dox/dotfiles"
 fi
 
 
