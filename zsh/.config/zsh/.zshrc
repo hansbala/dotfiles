@@ -64,7 +64,13 @@ COMPLETION_WAITING_DOTS="true"
 # Source all necessary files
 [ -f "$ZDOTDIR"/aliases.zsh ] && source "$ZDOTDIR"/aliases.zsh
 [ -f "$ZDOTDIR"/functions.zsh ] && source "$ZDOTDIR"/functions.zsh
-[ -f "$ZDOTDIR"/fzf.zsh ] && source "$ZDOTDIR"/fzf.zsh
+# Source fzf from a custom config directory if on a linux machine (can't install fzf with
+# sudo on SunLab machines)
+if [[ $(uname -s) == "Linux" ]]; then
+  [ -f "$ZDOTDIR"/.fzf_linux ] && source "$ZDOTDIR"/.fzf_linux
+else
+  [ -f "$ZDOTDIR"/fzf.zsh ] && source "$ZDOTDIR"/fzf.zsh
+fi
 [ -f "$ZDOTDIR"/keybindings.zsh ] && source "$ZDOTDIR"/keybindings.zsh
 [ -f "$ZDOTDIR"/brown_cit_functions.zsh ] && source "$ZDOTDIR"/brown_cit_functions.zsh
 #

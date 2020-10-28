@@ -62,4 +62,7 @@ if [[ $(uname -s) == "Linux" ]]; then
   alias cformat='cs0330_reformat'
   alias x='xdg-open &>/dev/null'
   alias email='(cd $HOME/local/apps/Shift && ./Shift --no-sandbox &) &>/dev/null'
+  # Update ls related aliases that do not have exa installed to use standard ls with colors
+  alias l='ls -l --color'
+  alias ll='ls -alh --color'
 fi

@@ -7,11 +7,20 @@ if [[ $(uname -s) == "Darwin" ]]; then
   export BROWSER=open
 fi
 
+# Change the umask when on Brown CIT machines
+if [[ $(uname -s) == "Linux" ]]; then
+  umask 077
+fi
+
 # Environmental related stuff goes in here
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export DOTFILES_LOCATION="$HOME/Development/dotfiles"
+if [[ $(uname -s) == "Linux" ]]; then
+export DOTFILES_LOCATION="$HOME/dev/dotfiles"
+fi
+
 
 # Define environmental variables to change the path of the default config files
 export XAUTHORITY="$HOME/.config/Xauthority"
