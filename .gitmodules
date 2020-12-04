@@ -22,3 +22,6 @@
 [submodule "nvim/.config/nvim/pack/plugins/start/vim-surround"]
 	path = nvim/.config/nvim/pack/plugins/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "nvim/.config/nvim/pack/plugins/start/ultisnips"]
+	path = nvim/.config/nvim/pack/plugins/start/ultisnips
+	url = https://github.com/SirVer/ultisnips.git

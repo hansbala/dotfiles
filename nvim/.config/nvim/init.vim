@@ -41,6 +41,13 @@ if isdirectory('/usr/local/opt/fzf')
 endif
 " }}}
 
+" Snippet Management {{{
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" }}}
+
 " Embedded terminal stuff {{{
 tnoremap <Esc> <C-\><C-n>       " get out of terminal mode easily without awkward \+n
 tnoremap <M-[> <Esc>            " use <Meta-[> sequence to send <Esc> to terminal
