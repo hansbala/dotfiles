@@ -44,19 +44,11 @@ zplug check || zplug install > /dev/null
 # Load the plugins
 zplug load
 
-# Add some directories if on a Linux machine
-if [[ $(uname -s) == "Linux" ]]; then
-  export PATH=/course/cs1670/bin:$PATH
-  export PATH=/course/cs0330/bin:$PATH
-  export PATH=/course/cs1320/bin:$PATH
-  export PATH=/course/cs1320/bin/node-v12.14.1-linux-x64/bin:$PATH
-fi
-
 # Set default username so zsh can properly format in the shell prompt
 DEFAULT_USER=hansbala
 
 # Modify path to include some custom ../bin directories
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 
 # Treats - and _ as equivalent whilst auto-completing commands
 HYPHEN_INSENSITIVE="true"
@@ -65,17 +57,11 @@ HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Source all necessary files
-[ -f "$ZDOTDIR"/aliases.zsh ] && source "$ZDOTDIR"/aliases.zsh
-[ -f "$ZDOTDIR"/functions.zsh ] && source "$ZDOTDIR"/functions.zsh
-# Source fzf from a custom config directory if on a linux machine (can't install fzf with
-# sudo on SunLab machines)
-if [[ $(uname -s) == "Linux" ]]; then
-  [ -f "$ZDOTDIR"/.fzf_linux ] && source "$ZDOTDIR"/.fzf_linux
-else
-  [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
-fi
-[ -f "$ZDOTDIR"/keybindings.zsh ] && source "$ZDOTDIR"/keybindings.zsh
-[ -f "$ZDOTDIR"/brown_cit_functions.zsh ] && source "$ZDOTDIR"/brown_cit_functions.zsh
+[ -f "$ZDOTDIR"/aliases.zsh ] && . "$ZDOTDIR"/aliases.zsh
+[ -f "$ZDOTDIR"/functions.zsh ] && . "$ZDOTDIR"/functions.zsh
+[ -f ~/.config/fzf/fzf.zsh ] && . ~/.config/fzf/fzf.zsh
+[ -f "$ZDOTDIR"/keybindings.zsh ] && . "$ZDOTDIR"/keybindings.zsh
+[ -f "$ZDOTDIR"/brown_cit_functions.zsh ] && . "$ZDOTDIR"/brown_cit_functions.zsh
 #[ -f "$ZDOTDIR"/modified_prompt.zsh ] && . "$ZDOTDIR"/modified_prompt.zsh
 #
 # Clear the terminal screen to remove the annoying 'last login' and zplug stuff

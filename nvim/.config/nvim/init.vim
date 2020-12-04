@@ -37,7 +37,10 @@ nnoremap <Leader>e $
 
 " FZF plugin {{{
 if isdirectory('/usr/local/opt/fzf')
-  set rtp+=/usr/local/opt/fzf   " add fzf directory to the vim runtimepath
+  set rtp+=/usr/local/opt/fzf   " add fzf directory to the vim runtimepath (homebrew installs here)
+endif
+if isdirectory($HOME.'/opt/fzf')
+  set rtp+=$HOME/opt/fzf        " on some linux machines, I install fzf here
 endif
 " }}}
 
