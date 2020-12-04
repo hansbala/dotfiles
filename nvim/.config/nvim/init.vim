@@ -1,87 +1,51 @@
-" nvim / python venv workaround for when a virtual environment is working, use
-" the system python installation
-if exists("$VIRTUAL_ENV")
-    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
-else
-    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
+" Special NeoVim settings {{{
+" Documentation: https://is.gd/a7O8th
+let g:python_host_prog = '/usr/bin/python3'
+let g:netrw_dirhistmax = 0
+" }}}
+" Basic settings {{{
+syntax enable
+filetype plugin indent on
+set encoding=utf-8
+set noswapfile                  " fucking hate this shit
+set nobackup                    " hate this too
+set hidden                      " allow switching out of unsaved buffers
+set number
+set relativenumber
+set mouse=a                     " enable mouse support
+set nowrap                      " no wrap in code files
+set splitbelow splitright       " normal splitting behaviour for panes
+set shiftwidth=2 softtabstop=2 
+set expandtab shiftround        " code indentation stuff
+set colorcolumn=100             " 100 columns is a good size for modern times
+colorscheme badwolf
+hi statusline ctermbg=darkgray ctermfg=white
+"}}} 
+
+" File finding {{{
+set path=.,,**                  " add ** to add all subchildren of current directory
+set wildignore=**/node_modules/**,**/__pycache__/**,**/.git/** " ignore these directories
+" }}}
+
+" Faster code navigation and basic shit {{{
+nnoremap J 10j
+nnoremap K 10k
+nnoremap <C-l> :nohl<CR>        " remove highlights after searching with /
+nnoremap <Leader>b ^
+nnoremap <Leader>e $
+" }}}
+
+" FZF plugin {{{
+if isdirectory('/usr/local/opt/fzf')
+  set rtp+=/usr/local/opt/fzf   " add fzf directory to the vim runtimepath
 endif
+" }}}
 
-" Change the leader key to space
-let mapleader = " "
-
-" vim plugin management
-if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
-	echo "Downloading junegunn/vim-plug to manage plugins..."
-	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
-	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
-	autocmd VimEnter * PlugInstall
-endif
-
-call plug#begin(system('echo -n "${XDG_DATA_HOME:-$HOME/.local/share}/nvim/plugged"'))
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'preservim/nerdtree'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  Plug 'mattn/emmet-vim'
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-surround'
-  Plug 'tomasr/molokai'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-  Plug 'ap/vim-css-color'
-call plug#end()
-
-" Basic settings
-  set nocompatible
-  filetype plugin on
-  syntax on
-  set encoding=utf-8
-  set number relativenumber
-  set splitbelow splitright
-  set background=dark
-  set autoindent
-  set shiftwidth=4
-  set softtabstop=4
-  set tabstop=4
-  set expandtab
-  set smarttab
-  set nowrap
-  set mouse=a
-  set clipboard=unnamed
-  set ttimeoutlen=5
-
-" Aesthetics
-  set termguicolors
-  colorscheme molokai
-  set cursorline
-  let g:airline_theme='molokai'
-
-" Faster code navigation and workflow
-  nmap <C-n> :NERDTreeToggle<CR>
-  nnoremap <silent> J 10j
-  nnoremap <silent> K 10k
-  nnoremap <Leader>b ^
-  nnoremap <Leader>e $
-  nnoremap <silent> <C-l> :nohl<CR><C-l>
-
-" fzf stuff
-  nmap <C-p> :GFiles<CR>
-  nmap <C-f> :BLines<CR>
-  nmap <C-g> :Rg! 
-
-" Code completion
-  let g:deoplete#enable_at_startup = 1
-
-" management of vim config
-  nnoremap <Leader>ve :vert sf $XDG_CONFIG_HOME/nvim/init.vim<CR>
-  nnoremap <Leader>vs :source $XDG_CONFIG_HOME/nvim/init.vim<CR>
-
-" Language specific settings "
-  augroup webdev
-    autocmd BufRead,BufNewFile *.html,*.css setlocal shiftwidth=2 softtabstop=2 tabstop=2
-  augroup END
-  augroup vimrc
-    autocmd BufRead,BufNewFile *.vim setlocal shiftwidth=2 softtabstop=2 tabstop=2
-  augroup END
-
-
+" Embedded terminal stuff {{{
+tnoremap <Esc> <C-\><C-n>       " get out of terminal mode easily without awkward \+n
+tnoremap <M-[> <Esc>            " use <Meta-[> sequence to send <Esc> to terminal
+augroup TerminalStuff
+  au!
+  autocmd TermOpen * setlocal nonumber norelativenumber
+augroup END
+" }}}

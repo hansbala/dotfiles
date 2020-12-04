@@ -48,6 +48,7 @@ alias docs='cd $HOME/Documents'
 alias shots='cd $HOME/Pictures/Screenshots'
 alias dev='cd $HOME/Development'
 alias mnt='cd $HOME/Documents/local_mnt'
+alias conf='cd $XDG_CONFIG_HOME'
 
 # Only import platform specific aliases 
 # (for compatibility between OS X and linux)
@@ -61,7 +62,6 @@ if [[ $(uname -s) == "Linux" ]]; then
   alias coolflip='bash /local/projects/twist/bin/coolflip'
   alias cformat='cs0330_reformat'
   alias x='xdg-open &>/dev/null'
-  alias email='(cd $HOME/local/apps/Shift && ./Shift --no-sandbox &) &>/dev/null'
   # Update ls related aliases that do not have exa installed to use standard ls with colors
   alias l='ls -l --color'
   alias ll='ls -alh --color'

@@ -34,6 +34,9 @@ zplug "peterhurford/up.zsh"
 zplug "mdumitru/git-aliases"
 # Robby Russell zsh theme
 zplug "themes/robbyrussell", from:oh-my-zsh
+# Pure zsh prompt
+# zplug "mafredri/zsh-async", from:github
+# zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 # Better command syntax highlighting (defer:2 to load after compinit)
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # Check if the plugins have been installed; install otherwise
@@ -69,10 +72,11 @@ COMPLETION_WAITING_DOTS="true"
 if [[ $(uname -s) == "Linux" ]]; then
   [ -f "$ZDOTDIR"/.fzf_linux ] && source "$ZDOTDIR"/.fzf_linux
 else
-  [ -f "$ZDOTDIR"/fzf.zsh ] && source "$ZDOTDIR"/fzf.zsh
+  [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
 fi
 [ -f "$ZDOTDIR"/keybindings.zsh ] && source "$ZDOTDIR"/keybindings.zsh
 [ -f "$ZDOTDIR"/brown_cit_functions.zsh ] && source "$ZDOTDIR"/brown_cit_functions.zsh
+#[ -f "$ZDOTDIR"/modified_prompt.zsh ] && . "$ZDOTDIR"/modified_prompt.zsh
 #
 # Clear the terminal screen to remove the annoying 'last login' and zplug stuff
 if [[ $(uname -s) == "Darwin" ]]; then

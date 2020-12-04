@@ -21,9 +21,9 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-      family: DroidSansMono Nerd Font
+      family: IBM 3270
 
-  size: 15.0
+  size: 20.0
 
 # Color schemes
 schemes:

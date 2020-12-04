@@ -77,3 +77,10 @@ zle -N git_prepare
 function vssh() {
     ssh -i ~/.ssh/ViperProbe.pem $1
 }
+
+# Remove given submodule and remove the directory
+remove_submodule() {
+  git submodule deinit $1
+  git rm -r $1
+  rm -r $1
+}
