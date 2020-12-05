@@ -25,3 +25,6 @@
 [submodule "nvim/.config/nvim/pack/plugins/start/ultisnips"]
 	path = nvim/.config/nvim/pack/plugins/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "nvim/.config/nvim/pack/plugins/start/vim-fugitive"]
+	path = nvim/.config/nvim/pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
