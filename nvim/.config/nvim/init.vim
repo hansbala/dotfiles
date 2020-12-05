@@ -1,14 +1,17 @@
 " Special NeoVim settings {{{
 " Documentation: https://is.gd/a7O8th
-let g:python_host_prog = '/usr/bin/python3'
-let g:netrw_dirhistmax = 0
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 " }}}
 " Basic settings {{{
 syntax enable
 filetype plugin indent on
+let mapleader = " "             " <Space> as leader key
+let g:netrw_dirhistmax = 0      " remove directory history everytime we open netrw
 set encoding=utf-8
 set noswapfile                  " fucking hate this shit
 set nobackup                    " hate this too
+set ttm=1                       " set timeoutlen for key codes to 1ms (faster insert to normal)
 set hidden                      " allow switching out of unsaved buffers
 set number
 set relativenumber
@@ -18,6 +21,7 @@ set splitbelow splitright       " normal splitting behaviour for panes
 set shiftwidth=2 softtabstop=2 
 set expandtab shiftround        " code indentation stuff
 set colorcolumn=100             " 100 columns is a good size for modern times
+set clipboard=unnamed           " Mac OS integration with system clipboard
 colorscheme badwolf
 hi statusline ctermbg=darkgray ctermfg=white
 "}}} 
@@ -42,6 +46,11 @@ endif
 if isdirectory($HOME.'/opt/fzf')
   set rtp+=$HOME/opt/fzf        " on some linux machines, I install fzf here
 endif
+" }}}
+
+" Netrw settings (directory explorer) {{{
+let g:netrw_banner = 0          " remove the top banner from netrw
+let g:netrw_liststyle = 3       " tree style listing for directories
 " }}}
 
 " Snippet Management {{{
