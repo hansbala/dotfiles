@@ -34,9 +34,9 @@ set wildignore=**/node_modules/**,**/__pycache__/**,**/.git/** " ignore these di
 " Faster code navigation and basic shit {{{
 nnoremap J 10j
 nnoremap K 10k
+nnoremap H ^
+nnoremap L $
 nnoremap <C-l> :nohl<CR>        " remove highlights after searching with /
-nnoremap <Leader>b ^
-nnoremap <Leader>e $
 " }}}
 
 " FZF plugin {{{
