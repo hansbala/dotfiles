@@ -3,9 +3,24 @@
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
 " }}}
+
+" Plugin Management {{{
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'junegunn/fzf.vim'         " #1 plugin that I absolutely NEED
+Plug 'SirVer/ultisnips'         " quickly generate commonly used snippets
+Plug 'junegunn/goyo.vim'        " Distraction free writing
+Plug 'tpope/vim-commentary'     " gcc to comment anything baby
+Plug 'tpope/vim-fugitive'       " It really should be illegal
+Plug 'tpope/vim-repeat'         " Great for . with plugin stuff
+Plug 'tpope/vim-surround'       " This should be built into vim, honestly.
+Plug 'ap/vim-css-color'         " Adds some visual bling
+Plug 'mattn/emmet-vim'          " This is great for quickly making HTML docs
+Plug 'sheerun/vim-polyglot'     " Add support for more languages in vim
+Plug 'vim-airline/vim-airline'  " Nice coloured bottom status bar and tab bar
+call plug#end()
+" }}}
+
 " Basic settings {{{
-syntax enable
-filetype plugin indent on
 let mapleader = " "             " <Space> as leader key
 let g:netrw_dirhistmax = 0      " remove directory history everytime we open netrw
 set encoding=utf-8
@@ -23,7 +38,7 @@ set expandtab shiftround        " code indentation stuff
 set colorcolumn=100             " 100 columns is a good size for modern times
 set clipboard=unnamed           " Mac OS integration with system clipboard
 colorscheme badwolf
-hi statusline ctermbg=darkgray ctermfg=white
+" hi statusline ctermbg=darkgray ctermfg=white
 "}}} 
 
 " File finding {{{
@@ -68,6 +83,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " }}}
 
 " Embedded terminal stuff {{{
+set shellcmdflag-=ic            " Set the terminal to interactive so that I can use all my aliases
 tnoremap <Esc> <C-\><C-n>       " get out of terminal mode easily without awkward \+n
 tnoremap <M-[> <Esc>            " use <Meta-[> sequence to send <Esc> to terminal
 augroup TerminalStuff
