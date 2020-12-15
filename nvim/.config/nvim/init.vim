@@ -13,6 +13,7 @@ Plug 'tpope/vim-commentary'     " gcc to comment anything baby
 Plug 'tpope/vim-fugitive'       " It really should be illegal
 Plug 'tpope/vim-repeat'         " Great for . with plugin stuff
 Plug 'tpope/vim-surround'       " This should be built into vim, honestly.
+Plug 'tpope/vim-vinegar'        " sensible defaults and some mappings for netrw
 Plug 'ap/vim-css-color'         " Adds some visual bling
 Plug 'mattn/emmet-vim'          " This is great for quickly making HTML docs
 Plug 'sheerun/vim-polyglot'     " Add support for more languages in vim
@@ -68,11 +69,6 @@ nmap <Leader>p :Files<CR>
 nmap <Leader>o :GFiles<CR>
 " <Alt-f> translates to ƒ so this is used to "find"
 nnoremap ƒ :BLines<CR>
-" }}}
-
-" Netrw settings (directory explorer) {{{
-let g:netrw_banner = 0          " remove the top banner from netrw
-let g:netrw_liststyle = 3       " tree style listing for directories
 " }}}
 
 " Snippet Management {{{
