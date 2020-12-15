@@ -10,7 +10,7 @@ alias x='open &>/dev/null'
 alias ext='extract'
 alias cl='clear'
 alias lc='clear'
-alias reload='source $XDG_CONFIG_HOME/zsh/.zshrc'
+alias reload='source ~/.profile'
 alias tmux='tmux -2 -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 
 # Development aliases
