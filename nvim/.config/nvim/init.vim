@@ -36,7 +36,9 @@ nnoremap J 10j
 nnoremap K 10k
 nnoremap H ^
 nnoremap L $
-nnoremap <C-l> :nohl<CR>        " remove highlights after searching with /
+nnoremap <C-h> <C-w>h           " move to the left pane
+nnoremap <C-l> <C-w>l           " move to the right pane
+nnoremap <C-q> :nohl<CR>        " remove highlights after search
 " }}}
 
 " FZF plugin {{{
@@ -46,6 +48,11 @@ endif
 if isdirectory($HOME.'/opt/fzf')
   set rtp+=$HOME/opt/fzf        " on some linux machines, I install fzf here
 endif
+" FZF mappings
+nmap <Leader>p :Files<CR>
+nmap <Leader>o :GFiles<CR>
+" <Alt-f> translates to ƒ so this is used to "find"
+nnoremap ƒ :BLines<CR>
 " }}}
 
 " Netrw settings (directory explorer) {{{

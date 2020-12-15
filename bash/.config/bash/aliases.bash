@@ -24,10 +24,12 @@ alias 132aws='ssh -i "hbala-mbp.pem" ec2-user@ec2-34-205-78-216.compute-1.amazon
 # Access common config files and directories
 alias dotfiles='cd $DOTFILES_LOCATION'
 alias vimrc='$EDITOR $XDG_CONFIG_HOME/nvim/init.vim'
-alias zshrc='$EDITOR $XDG_CONFIG_HOME/zsh/.zshrc'
-alias zshenv='$EDITOR $HOME/.zshenv'
-alias aliases='$EDITOR $XDG_CONFIG_HOME/zsh/aliases.zsh'
-alias funcs='$EDITOR $XDG_CONFIG_HOME/zsh/functions.zsh'
+# alias zshrc='$EDITOR $XDG_CONFIG_HOME/zsh/.zshrc'
+alias bashrc='$EDITOR $XDG_CONFIG_HOME/bash/.bashrc'
+alias profile='$EDITOR ~/.profile'
+# alias zshenv='$EDITOR $HOME/.zshenv'
+alias aliases='$EDITOR $XDG_CONFIG_HOME/bash/aliases.bash'
+alias funcs='$EDITOR $XDG_CONFIG_HOME/bash/functions_general.bash'
 alias tmux_conf='$EDITOR $XDG_CONFIG_HOME/tmux/tmux.conf'
 
 # Darwin: Helpful aliases
