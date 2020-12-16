@@ -21,22 +21,22 @@ function parse_git_dirty {
 	deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
 	bits=''
 	if [ "${renamed}" == "0" ]; then
-		bits=">${bits}"
+		bits="δ${bits}"
 	fi
 	if [ "${ahead}" == "0" ]; then
-		bits="*${bits}"
+		bits="Λ${bits}"
 	fi
 	if [ "${newfile}" == "0" ]; then
-		bits="+${bits}"
+		bits="σ${bits}"
 	fi
 	if [ "${untracked}" == "0" ]; then
-		bits="?${bits}"
+		bits="Σ${bits}"
 	fi
 	if [ "${deleted}" == "0" ]; then
-		bits="x${bits}"
+		bits="ϕ${bits}"
 	fi
 	if [ "${dirty}" == "0" ]; then
-		bits="!${bits}"
+		bits="∆${bits}"
 	fi
 	if [ ! "${bits}" == "" ]; then
 		echo " ${bits}"
