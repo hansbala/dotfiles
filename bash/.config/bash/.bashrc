@@ -1,5 +1,13 @@
 #!/bin/sh
 
+# Some useful shell options for bash
+shopt -s autocd cdspell checkwinsize dirspell expand_aliases complete_fullquote\
+         nocasematch promptvars progcomp histappend cmdhist lithist
+
+# Change shell options (Documentation: 
+# https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
+set +o monitor -o braceexpand -o histexpand
+
 # Enable case-insensitive tab completion for bash
 bind 'set completion-ignore-case on'
 
