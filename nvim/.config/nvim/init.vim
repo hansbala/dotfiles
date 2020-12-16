@@ -55,6 +55,7 @@ nnoremap L $
 nnoremap <C-h> <C-w>h           " move to the left pane
 nnoremap <C-l> <C-w>l           " move to the right pane
 nnoremap <C-q> :nohl<CR>        " remove highlights after search
+nnoremap <Leader>g :Goyo<CR>    " Used to toggle Goyo
 " }}}
 
 " FZF plugin {{{
