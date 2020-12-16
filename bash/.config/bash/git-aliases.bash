@@ -1,6 +1,3 @@
-cite 'about-alias'
-about-alias 'common git abbreviations'
-
 # Aliases
 alias gcl='git clone'
 alias ga='git add'
@@ -118,9 +115,9 @@ alias gswc="git switch --create"
 alias gswt="git switch --track"
 # Git home
 alias ghm='cd "$(git rev-parse --show-toplevel)"'
-if ! _command_exists gh; then
-  alias gh='ghm'
-fi
+# if ! _command_exists gh; then
+#   alias gh='ghm'
+# fi
 # Show untracked files
 alias gu='git ls-files . --exclude-standard --others'
 

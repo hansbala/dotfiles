@@ -11,3 +11,4 @@ bind 'set completion-ignore-case on'
 [ -f "$XDG_CONFIG_HOME/bash/keybindings.bash" ] && . "$XDG_CONFIG_HOME/bash/keybindings.bash"
 [ -f "$XDG_CONFIG_HOME/fzf/fzf.bash" ] && . "$XDG_CONFIG_HOME/fzf/fzf.bash"
 [ -f "$XDG_CONFIG_HOME/bash/git-completion.bash" ] && . "$XDG_CONFIG_HOME/bash/git-completion.bash"
+[ -f "$XDG_CONFIG_HOME/bash/git-aliases.bash" ] && . "$XDG_CONFIG_HOME/bash/git-aliases.bash"
