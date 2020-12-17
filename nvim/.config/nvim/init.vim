@@ -50,6 +50,8 @@ if exists('+termguicolors')
 endif
 set background=dark
 colorscheme NeoSolarized
+let g:airline_section_y = ''
+let g:airline_section_z = ''
 let g:airline_theme='solarized'
 " }}}
 
