@@ -9,8 +9,8 @@ window:
     columns: 120
     lines: 90
   padding:
-    x: 0
-    y: 0
+    x: 40
+    y: 20
   decorations: none
   startup_mode: Maximized
 
