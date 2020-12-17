@@ -18,6 +18,7 @@ Plug 'ap/vim-css-color'         " Adds some visual bling
 Plug 'mattn/emmet-vim'          " This is great for quickly making HTML docs
 Plug 'sheerun/vim-polyglot'     " Add support for more languages in vim
 Plug 'vim-airline/vim-airline'  " Nice coloured bottom status bar and tab bar
+Plug 'vim-airline/vim-airline-themes' " Themes for the bottom bar
 call plug#end()
 " }}}
 
@@ -27,6 +28,7 @@ let g:netrw_dirhistmax = 0      " remove directory history everytime we open net
 set encoding=utf-8
 set noswapfile                  " fucking hate this shit
 set nobackup                    " hate this too
+set tm=300                      " set timeoutlen for a sequence of keys to complete
 set ttm=1                       " set timeoutlen for key codes to 1ms (faster insert to normal)
 set hidden                      " allow switching out of unsaved buffers
 set number
@@ -38,9 +40,18 @@ set shiftwidth=2 softtabstop=2
 set expandtab shiftround        " code indentation stuff
 set colorcolumn=100             " 100 columns is a good size for modern times
 set clipboard=unnamed           " Mac OS integration with system clipboard
-colorscheme badwolf
-" hi statusline ctermbg=darkgray ctermfg=white
 "}}} 
+
+" Eye candy {{{
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+set background=dark
+colorscheme NeoSolarized
+let g:airline_theme='solarized'
+" }}}
 
 " File finding {{{
 set path=.,,**                  " add ** to add all subchildren of current directory

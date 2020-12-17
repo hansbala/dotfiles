@@ -15,6 +15,10 @@ if [[ $(uname -s) == "Darwin" ]]; then
   export BROWSER=open
 fi
 
+# Set the TERM variable to screen-256color so that colors
+# appear sugary sweet in tmux and vim
+export TERM=screen-256color
+
 # Change the umask when on Linux machines
 if [[ $(uname -s) == "Linux" ]]; then
   umask 077
