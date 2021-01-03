@@ -12,5 +12,5 @@ endfunction
 
 augroup commits
   autocmd!
-  autocmd BufEnter COMMIT_EDITMSG call s:auto_goyo()
+"  autocmd BufEnter COMMIT_EDITMSG call s:auto_goyo()
 augroup END
