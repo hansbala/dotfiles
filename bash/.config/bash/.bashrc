@@ -6,7 +6,7 @@ shopt -s autocd cdspell checkwinsize dirspell expand_aliases complete_fullquote\
 
 # Change shell options (Documentation: 
 # https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
-set +o monitor -o braceexpand -o histexpand
+set +o monitor -o braceexpand -o histexpand -o vi
 
 # Enable case-insensitive tab completion for bash
 bind 'set completion-ignore-case on'
