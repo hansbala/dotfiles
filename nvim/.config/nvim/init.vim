@@ -4,18 +4,23 @@ let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
 " }}}
 
+" Set Environment variable for init.vim so that I can easily get there {{{
+let $MYRC="$XDG_CONFIG_HOME/nvim/init.vim"
+" }}}
+
 " Plugin Management {{{
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'junegunn/fzf.vim'         " #1 plugin that I absolutely NEED
-Plug 'tpope/vim-commentary'     " gcc to comment anything baby
-Plug 'tpope/vim-fugitive'       " It really should be illegal
-Plug 'tpope/vim-repeat'         " Great for . with plugin stuff
-Plug 'tpope/vim-surround'       " This should be built into vim, honestly.
-Plug 'tpope/vim-vinegar'        " sensible defaults and some mappings for netrw
-Plug 'ap/vim-css-color'         " Adds some visual bling
-Plug 'sheerun/vim-polyglot'     " Add support for more languages in vim
-Plug 'vim-airline/vim-airline'  " Nice coloured bottom status bar and tab bar
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Gotta ride that coc
+Plug 'junegunn/fzf.vim'                         " #1 plugin that I absolutely NEED
+Plug 'tpope/vim-commentary'                     " gcc to comment anything baby
+Plug 'tpope/vim-fugitive'                       " It really should be illegal
+Plug 'tpope/vim-repeat'                         " Great for . with plugin stuff
+Plug 'tpope/vim-surround'                       " This should be built into vim, honestly.
+Plug 'tpope/vim-vinegar'                        " sensible defaults and some mappings for netrw
+Plug 'ap/vim-css-color'                         " Adds some visual bling
+Plug 'sheerun/vim-polyglot'                     " Add support for more languages in vim
+Plug 'vim-airline/vim-airline'                  " Nice coloured bottom status bar and tab bar
+Plug 'honza/vim-snippets'                       " Commonly used vim snippets
 call plug#end()
 " }}}
 
