@@ -21,6 +21,7 @@ alias website='ssh hansblvq@hansbala.com'
 alias weenix='cd ~/Development/weenix'
 alias weenixssh='cd ~/Development/weenix && vagrant up && vagrant ssh -- -Y'
 alias 132aws='ssh -i "hbala-mbp.pem" ec2-user@ec2-34-205-78-216.compute-1.amazonaws.com'
+alias cvenv='source /Users/hansbala/Development/brown-cv/env/bin/activate'
 
 # Access common config files and directories
 alias dotfiles='cd $DOTFILES_LOCATION'

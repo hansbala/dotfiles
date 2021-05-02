@@ -6,19 +6,16 @@ let g:python3_host_prog = '/usr/bin/python3'
 
 " Plugin Management {{{
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf.vim'         " #1 plugin that I absolutely NEED
-Plug 'SirVer/ultisnips'         " quickly generate commonly used snippets
-Plug 'junegunn/goyo.vim'        " Distraction free writing
 Plug 'tpope/vim-commentary'     " gcc to comment anything baby
 Plug 'tpope/vim-fugitive'       " It really should be illegal
 Plug 'tpope/vim-repeat'         " Great for . with plugin stuff
 Plug 'tpope/vim-surround'       " This should be built into vim, honestly.
 Plug 'tpope/vim-vinegar'        " sensible defaults and some mappings for netrw
 Plug 'ap/vim-css-color'         " Adds some visual bling
-Plug 'mattn/emmet-vim'          " This is great for quickly making HTML docs
 Plug 'sheerun/vim-polyglot'     " Add support for more languages in vim
 Plug 'vim-airline/vim-airline'  " Nice coloured bottom status bar and tab bar
-Plug 'vim-airline/vim-airline-themes' " Themes for the bottom bar
 call plug#end()
 " }}}
 
@@ -29,7 +26,6 @@ set encoding=utf-8
 set noswapfile                  " fucking hate this shit
 set nobackup                    " hate this too
 set tm=300                      " set timeoutlen for a sequence of keys to complete
-set ttm=1                       " set timeoutlen for key codes to 1ms (faster insert to normal)
 set hidden                      " allow switching out of unsaved buffers
 set number
 set relativenumber
@@ -43,16 +39,8 @@ set clipboard=unnamed           " Mac OS integration with system clipboard
 "}}} 
 
 " Eye candy {{{
-if exists('+termguicolors')
-  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
 set background=dark
-colorscheme NeoSolarized
-let g:airline_section_y = ''
-let g:airline_section_z = ''
-let g:airline_theme='solarized'
+colorscheme badwolf
 " }}}
 
 " File finding {{{
@@ -65,10 +53,7 @@ nnoremap J 10j
 nnoremap K 10k
 nnoremap H ^
 nnoremap L $
-nnoremap <C-h> <C-w>h           " move to the left pane
-nnoremap <C-l> <C-w>l           " move to the right pane
 nnoremap <C-q> :nohl<CR>        " remove highlights after search
-nnoremap <Leader>g :Goyo<CR>    " Used to toggle Goyo
 " }}}
 
 " FZF plugin {{{
@@ -85,13 +70,6 @@ nmap <Leader>o :GFiles<CR>
 nnoremap ƒ :BLines<CR>
 " }}}
 
-" Snippet Management {{{
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-" }}}
-
 " Embedded terminal stuff {{{
 set shellcmdflag-=ic            " Set the terminal to interactive so that I can use all my aliases
 tnoremap <Esc> <C-\><C-n>       " get out of terminal mode easily without awkward \+n
@@ -100,4 +78,8 @@ augroup TerminalStuff
   au!
   autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
+" }}}
+
+" Import coc settings {{{
+source $XDG_CONFIG_HOME/nvim/configs/coc-settings.vim
 " }}}

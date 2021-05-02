@@ -34,6 +34,7 @@ fo() (
     [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
   fi
 )
+
 # Switches to a tmux session using fzf or will create it if it does not exist
 tm() {
   [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
@@ -74,14 +75,6 @@ function git_prepare() {
 }
 # zle -N git_prepare
 
-# SSH into ViperProbe related machines
-function vssh() {
-    ssh -i ~/.ssh/ViperProbe.pem $1
-}
-
-# Remove given submodule and remove the directory
-remove_submodule() {
-  git submodule deinit $1
-  git rm -r $1
-  rm -r $1
+function tn() {
+  tmux new-session -s $1
 }

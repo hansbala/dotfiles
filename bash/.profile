@@ -45,9 +45,15 @@ export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
 # FZF settings
 export FZF_COMPLETION_TRIGGER='**'
 export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,__pycache__/*,python*/*}"'
 
 # Change location of history file for bash
 export HISTFILE="$XDG_CACHE_HOME/.bash_history":~/.cache/.bash_history
 
 # Source the config file from ~/.config
 [ -f "$XDG_CONFIG_HOME/bash/.bashrc" ] && source "$XDG_CONFIG_HOME/bash/.bashrc"
+
+# Setting PATH for Python 3.7
+# The original version is saved in .profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+export PATH
