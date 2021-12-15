@@ -2,3 +2,5 @@
 .zcompdump
 .zplug
 .zsh_history
+plugged/
+.netrwhist
