@@ -17,32 +17,22 @@ alias tmux='tmux -2 -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 alias py='python3'
 alias v='nvim'
 alias vim='nvim'
-alias website='ssh hansblvq@hansbala.com'
-alias weenix='cd ~/Development/weenix'
-alias weenixssh='cd ~/Development/weenix && vagrant up && vagrant ssh -- -Y'
-alias 132aws='ssh -i "hbala-mbp.pem" ec2-user@ec2-34-205-78-216.compute-1.amazonaws.com'
-alias cvenv='source /Users/hansbala/Development/brown-cv/env/bin/activate'
 alias fixvpn='sudo ifconfig lo0 -alias 192.0.2.2'
 
 # Access common config files and directories
 alias dotfiles='cd $DOTFILES_LOCATION'
 alias vimrc='$EDITOR $XDG_CONFIG_HOME/nvim/init.vim'
-# alias zshrc='$EDITOR $XDG_CONFIG_HOME/zsh/.zshrc'
 alias bashrc='$EDITOR $XDG_CONFIG_HOME/bash/.bashrc'
 alias profile='$EDITOR ~/.profile'
-# alias zshenv='$EDITOR $HOME/.zshenv'
 alias aliases='$EDITOR $XDG_CONFIG_HOME/bash/aliases.bash'
 alias funcs='$EDITOR $XDG_CONFIG_HOME/bash/functions_general.bash'
 alias tmux_conf='$EDITOR $XDG_CONFIG_HOME/tmux/tmux.conf'
 
 # Darwin: Helpful aliases
-alias quit='killall iTerm2'
 alias beast_mode='caffeinate'
-alias local_ip='ipconfig getifaddr en0'
-alias external_ip='curl ipecho.net/plain; echo'
+alias locip='ipconfig getifaddr en0'
+alias extip='curl ipecho.net/plain; echo'
 alias trash='rm -rf $HOME/.Trash/*'
-alias air='BluetoothConnector --connect 60-8c-4a-43-b3-8b && echo "successfully paired with airpods"'
-alias marshall='BluetoothConnector --connect 10-d0-7a-b6-b8-96'
 alias reset_audio='sudo killall coreaudiod && sudo launchctl start com.apple.coreaudiod'
 alias speed_test='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 alias finder='open .'
@@ -55,10 +45,6 @@ alias shots='cd $HOME/Pictures/Screenshots'
 alias dev='cd $HOME/Development'
 alias mnt='cd $HOME/Documents/local_mnt'
 alias conf='cd $XDG_CONFIG_HOME'
-
-# Cyrpto helpers
-alias cmine='cd $HOME/Development/crypto-pirate/mining && ./whip.sh cferna12'
-alias ckill='cd $HOME/Development/crypto-pirate/mining && ./whip.sh cferna12 kill'
 
 # Only import platform specific aliases 
 # (for compatibility between OS X and linux)
