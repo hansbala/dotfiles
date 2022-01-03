@@ -38,7 +38,6 @@ alias speed_test='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/
 alias finder='open .'
 
 # Darwin: commonly visited directories
-alias gd='cd /Users/hansbala/Google/'
 alias down='cd $HOME/Downloads'
 alias docs='cd $HOME/Documents'
 alias shots='cd $HOME/Pictures/Screenshots'
