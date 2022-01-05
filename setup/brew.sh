@@ -26,40 +26,43 @@ brew install openssl
 brew install git
 brew install openssh
 brew install wget
-brew install zsh
 brew install tree
 brew install neofetch
-brew install bluetoothconnector
 brew install stow
-brew install bitwarden-cli
 brew install fzf
 brew install ripgrep
 brew install bat
 brew install node
+brew install bash
+brew install exa
+brew install neovim
 
 # Brew cask packages (mostly GUIs)
-brew cask install alfred
-brew cask install google-backup-and-sync
-brew cask install between
-brew cask install bitwarden
-brew cask install cyberduck
-brew cask install dozer
-brew cask install evernote
-brew cask install firefox
-brew cask install iterm2
-brew cask install spectacle
-brew cask install spotify
-brew cask install sublime-text
-brew cask install teamviewer
-brew cask install the-unarchiver
-brew cask install tor-browser
-brew cask install transmission
-brew cask install cyberghost-vpn
-brew cask install vlc
-brew cask install itsycal
-brew cask install oracle-jdk
-brew cask install shift
-brew cask install alacritty
+brew install --cask google-chrome
+brew install --cask dropbox
+brew install --cask alfred
+brew install --cask bitwarden
+brew install --cask cyberduck
+brew install --cask spectacle
+brew install --cask spotify
+brew install --cask sublime-text
+brew install --cask teamviewer
+brew install --cask the-unarchiver
+brew install --cask tor-browser
+brew install --cask transmission
+brew install --cask vlc
+brew install --cask itsycal
+brew install --cask alacritty
+brew install --cask tunnelblick
+brew install --cask visual-studio-code
+brew install --cask teamviewer
+brew install --cask slack
+brew install --cask skype
+brew install --cask postman
+brew install --cask obs
+brew install --cask discord
+brew install --cask cloudflare-warp
+brew install --cask microsoft-office
 
 # Cleanup the homebrew directory
 brew cleanup
