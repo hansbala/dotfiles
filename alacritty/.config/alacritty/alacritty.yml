@@ -30,7 +30,7 @@ shell:
 font:
   # Normal (roman) font face
   normal:
-      family: IBM 3270
+      family: DroidSansMono Nerd Font
 
   size: 21.0
 

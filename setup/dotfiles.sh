@@ -15,6 +15,6 @@
 # Change into the parent dotfiles directory
 cd ..
 # Stow everything except setup scripts and the .stowrc file
-stow alacritty git iterm2 npm nvim tmux wall xorg zsh --target=$HOME
+stow alacritty git iterm2 npm nvim tmux wall xorg bash --target=$HOME
 
 echo 'Stowed all dotfiles into' $HOME 
