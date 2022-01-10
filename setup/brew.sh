@@ -63,6 +63,7 @@ brew install --cask obs
 brew install --cask discord
 brew install --cask cloudflare-warp
 brew install --cask microsoft-office
+brew install --cask stats
 
 # Cleanup the homebrew directory
 brew cleanup
