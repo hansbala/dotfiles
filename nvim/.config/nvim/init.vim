@@ -43,6 +43,7 @@ set wildignore=**/node_modules/**,**/__pycache__/**,**/.git/**
 " Indentation
 set expandtab
 set autoindent
+set smartindent
 
 " moving around easier mappings
 nnoremap J 10j
@@ -66,3 +67,6 @@ let g:user_emmet_settings = {
 \}
 
 hi Normal guibg=NONE ctermbg=NONE
+
+" autocommands
+autocmd TermOpen * setlocal nonumber norelativenumber
