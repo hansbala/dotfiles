@@ -17,6 +17,8 @@ alias ll='ls -alh --color'
 alias py='python3'
 alias v='nvim'
 alias vim='nvim'
+alias cs1951a_venv='source ~/Development/datascience/cs1951a_venv/bin/activate'
+alias sq='sqlite3'
 
 # Access common config files and directories
 alias dotfiles='cd $DOTFILES_LOCATION'

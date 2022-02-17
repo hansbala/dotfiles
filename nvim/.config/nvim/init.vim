@@ -41,9 +41,9 @@ set path=.,,**
 set wildignore=**/node_modules/**,**/__pycache__/**,**/.git/**
 
 " Indentation
+filetype plugin indent on
 set expandtab
 set autoindent
-set smartindent
 
 " moving around easier mappings
 nnoremap J 10j
