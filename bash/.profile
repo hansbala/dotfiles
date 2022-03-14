@@ -10,6 +10,8 @@ export XAUTHORITY="$HOME/.config/Xauthority"
 export LESSHISTFILE="-"
 export FZF_COMPLETION_TRIGGER="**"
 export HISTFILE="$XDG_CACHE_HOME/.bash_history":~/.cache/.bash_history
+export DOTFILES_LOCATION="$HOME/.dotfiles"
+export PATH=$HOME/bin:$PATH
 
 # Better bash options
 shopt -s autocd cdspell checkwinsize dirspell expand_aliases complete_fullquote\
@@ -20,7 +22,13 @@ bind 'set completion-ignore-case on'
 # Check if starship is installed
 if ! command -v starship &> /dev/null
 then
- sh -c "$(curl -fsSL https://starship.rs/install.sh)" 
+  echo "Downloading Starship to ~/bin"
+  mkdir -p $HOME/tmp
+  rm /tmp/starshi*
+  wget --show-progress -c https://github.com/starship/starship/releases/latest/download/starship-x86_64-apple-darwin.tar.gz -O /tmp/starship.tar.gz
+  tar -xf /tmp/starship.tar.gz -C $HOME/bin
+  clear
+  echo "Successfully installed starship!"
 fi
 
 # Import all user aliases
