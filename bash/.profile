@@ -31,21 +31,15 @@ then
   echo "Successfully installed starship!"
 fi
 
-# Import all user aliases
-if test -f "$XDG_CONFIG_HOME/bash/aliases.bash"; then
-  source "$XDG_CONFIG_HOME/bash/aliases.bash"
-fi
-# Import all user functions
-if test -f "$XDG_CONFIG_HOME/bash/functions.bash"; then
-  source "$XDG_CONFIG_HOME/bash/functions.bash"
-fi
-# Source the git aliases
-if test -f "$XDG_CONFIG_HOME/bash/git-aliases.bash"; then
-  source "$XDG_CONFIG_HOME/bash/git-aliases.bash"
-fi
-# Source the git aliases
-if test -f "$XDG_CONFIG_HOME/bash/git-completion.bash"; then
-  source "$XDG_CONFIG_HOME/bash/git-completion.bash"
+# Import all aliases and functions
+for f in $XDG_CONFIG_HOME/bash/*.nix.bash; do
+  source $f
+done
+# Import some extra aliases and functions which are Mac specific
+if [[ $(uname -s) == "Darwin" ]]; then
+  for f in $XDG_CONFIG_HOME/bash/*.darwin.bash; do
+    source $f
+  done
 fi
 
 # Activate the starship prompt
