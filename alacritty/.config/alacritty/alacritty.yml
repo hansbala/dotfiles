@@ -13,8 +13,7 @@ window:
     y: 20
   decorations: none
   startup_mode: Maximized
-
-background_opacity: 1.0
+  opacity: 1.0
 
 scrolling:
   history: 10000

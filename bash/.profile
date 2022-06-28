@@ -5,12 +5,11 @@ export EDITOR='nvim'
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
-export DOTFILES_LOC="$HOME/Development/dotfiles"
+export DOTFILES_LOC="$HOME/workspace/dotfiles"
 export XAUTHORITY="$HOME/.config/Xauthority"
 export LESSHISTFILE="-"
 export FZF_COMPLETION_TRIGGER="**"
 export HISTFILE="$XDG_CACHE_HOME/.bash_history":~/.cache/.bash_history
-export DOTFILES_LOCATION="$HOME/.dotfiles"
 export PATH=$HOME/bin:$PATH
 
 # Better bash options
