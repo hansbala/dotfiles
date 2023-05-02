@@ -4,4 +4,4 @@
 .zsh_history
 plugged/
 .netrwhist
-*.zsh_history
+zsh/.config/zsh/history.zsh_history
