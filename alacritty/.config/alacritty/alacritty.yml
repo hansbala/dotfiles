@@ -30,8 +30,12 @@ font:
 draw_bold_text_with_bright_colors: false
 
 key_bindings:
-  - { key: Right, mods: Alt, chars: "\x1BF" }
-  - { key: Left,  mods: Alt, chars: "\x1BB" }
+  - { key: Left,  mods: Alt, chars: "\x1bb" } # move one word left
+  - { key: Right, mods: Alt, chars: "\x1bf" } # move one word right
+  - { key: Back,  mods: Alt, chars: "\x1b\x7f" } # Delete word back
+  - { key: Back,  mods: Command, chars: "\x15" } # Delete line
+  - { key: Left,  mods: Command, chars: "\x1bOH" } # Home
+  - { key: Right, mods: Command, chars: "\x1bOF" } # End
 
 # Color schemes
 schemes:

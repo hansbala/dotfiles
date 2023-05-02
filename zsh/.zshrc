@@ -14,7 +14,7 @@ export PATH=$HOME/bin:~/go/bin:/opt/homebrew/bin:$PNPM_HOME:$PATH
 export HISTFILE="$XDG_CONFIG_HOME/zsh/history.zsh_history"
 
 # vim style editing for zsh
-bindkey -v
+# bindkey -v
 
 # share history across all terminals
 setopt share_history
