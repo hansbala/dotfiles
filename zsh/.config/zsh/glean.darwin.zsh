@@ -18,7 +18,7 @@ alias local_feqe='scio run_local -m fe qe --cloud_sql --scio_instance=glean-dev'
 alias gcpla='git cherry-pick 2e04f1b57d88a806cce69399e8965eed4fbca5f9'
 
 # Source the Scio completion framework
-source $HOME/workspace/scio/scio-completion.bash
+# source $HOME/workspace/scio/scio-completion.bash
 
 function morn() {
     gcloud auth application-default login

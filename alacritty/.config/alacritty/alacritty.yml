@@ -9,8 +9,8 @@ window:
     columns: 120
     lines: 90
   padding:
-    x: 40
-    y: 20
+    x: 5
+    y: 0
   decorations: none
   startup_mode: Maximized
   opacity: 1.0
@@ -18,23 +18,20 @@ window:
 scrolling:
   history: 10000
 
-shell:
-  program: /usr/local/bin/bash
-  args:
-    - -l
-    - -c
-    - "tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf attach || tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf"
-
 # Font configuration
 font:
   # Normal (roman) font face
   normal:
-      family: DroidSansMono Nerd Font
+      family: Anonymice Nerd Font Mono
 
-  size: 21.0
+  size: 32.0
 
 # Some color schemes do not behave well without this setting (looking @ you, Solarized :'()
 draw_bold_text_with_bright_colors: false
+
+key_bindings:
+  - { key: Right, mods: Alt, chars: "\x1BF" }
+  - { key: Left,  mods: Alt, chars: "\x1BB" }
 
 # Color schemes
 schemes:
@@ -92,5 +89,162 @@ schemes:
       magenta: '#6c71c4'
       cyan:    '#93a1a1'
       white:   '#fdf6e3'
+  gruvbox_material_hard_dark: &gruvbox_material_hard_dark
+    primary:
+      background: '0x1d2021'
+      foreground: '0xd4be98'
+    normal:
+      black:   '0x32302f'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xd8a657'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xd4be98'
+    bright:
+      black:   '0x32302f'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xd8a657'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xd4be98'
+  solarized_light: &solarized_light
+    primary:
+      background: '0xfdf6e3'
+      foreground: '0x586e75'
+    normal:
+      black:   '0x073642'
+      red:     '0xdc322f'
+      green:   '0x859900'
+      yellow:  '0xb58900'
+      blue:    '0x268bd2'
+      magenta: '0xd33682'
+      cyan:    '0x2aa198'
+      white:   '0xeee8d5'
+    bright:
+      black:   '0x002b36'
+      red:     '0xcb4b16'
+      green:   '0x586e75'
+      yellow:  '0x657b83'
+      blue:    '0x839496'
+      magenta: '0x6c71c4'
+      cyan:    '0x93a1a1'
+      white:   '0xfdf6e3'
+  dracula: &dracula
+    primary:
+      background: '#282a36'
+      foreground: '#f8f8f2'
+      bright_foreground: '#ffffff'
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: '#44475a'
+        background: '#50fa7b'
+      focused_match:
+        foreground: '#44475a'
+        background: '#ffb86c'
+    footer_bar:
+      background: '#282a36'
+      foreground: '#f8f8f2'
+    hints:
+      start:
+        foreground: '#282a36'
+        background: '#f1fa8c'
+      end:
+        foreground: '#f1fa8c'
+        background: '#282a36'
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: CellForeground
+      background: '#44475a'
+    normal:
+      black: '#21222c'
+      red: '#ff5555'
+      green: '#50fa7b'
+      yellow: '#f1fa8c'
+      blue: '#bd93f9'
+      magenta: '#ff79c6'
+      cyan: '#8be9fd'
+      white: '#f8f8f2'
+    bright:
+      black: '#6272a4'
+      red: '#ff6e6e'
+      green: '#69ff94'
+      yellow: '#ffffa5'
+      blue: '#d6acff'
+      magenta: '#ff92df'
+      cyan: '#a4ffff'
+      white: '#ffffff'
+  onedark: &onedark
+    primary:
+      background: '0x1e2127'
+      foreground: '0xabb2bf'
+      bright_foreground: '0xe6efff'
+    normal:
+      black:   '0x1e2127'
+      red:     '0xe06c75'
+      green:   '0x98c379'
+      yellow:  '0xd19a66'
+      blue:    '0x61afef'
+      magenta: '0xc678dd'
+      cyan:    '0x56b6c2'
+      white:   '0x828791'
+    bright:
+      black:   '0x5c6370'
+      red:     '0xe06c75'
+      green:   '0x98c379'
+      yellow:  '0xd19a66'
+      blue:    '0x61afef'
+      magenta: '0xc678dd'
+      cyan:    '0x56b6c2'
+      white:   '0xe6efff'
+    dim:
+      black:   '0x1e2127'
+      red:     '0xe06c75'
+      green:   '0x98c379'
+      yellow:  '0xd19a66'
+      blue:    '0x61afef'
+      magenta: '0xc678dd'
+      cyan:    '0x56b6c2'
+      white:   '0x828791'
+  moonfly: &moonfly
+    primary:
+      background:        '#080808'
+      foreground:        '#b2b2b2'
+      bright_foreground: '#eeeeee'
+    cursor:
+      text:   '#080808'
+      cursor: '#9e9e9e'
+    selection:
+      text:       '#080808'
+      background: '#b2ceee'
+    normal:
+      black:   '#323437'
+      red:     '#ff5454'
+      green:   '#8cc85f'
+      yellow:  '#e3c78a'
+      blue:    '#80a0ff'
+      magenta: '#d183e8'
+      cyan:    '#79dac8'
+      white:   '#c6c6c6'
+    bright:
+      black:   '#949494'
+      red:     '#ff5189'
+      green:   '#36c692'
+      yellow:  '#c2c292'
+      blue:    '#74b2ff'
+      magenta: '#ae81ff'
+      cyan:    '#85dc85'
+      white:   '#e4e4e4'
 
-colors: *molokai
+colors: *moonfly

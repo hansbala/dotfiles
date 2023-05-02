@@ -13,45 +13,11 @@ $git_state\
 $git_metrics\
 $git_status\
 $hg_branch\
-$docker_context\
-$package\
-$cmake\
-$cobol\
-$dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$golang\
-$helm\
-$java\
-$julia\
-$kotlin\
-$lua\
-$nim\
-$nodejs\
-$ocaml\
-$perl\
-$php\
-$pulumi\
-$purescript\
 $python\
-$rlang\
-$red\
-$ruby\
-$rust\
-$scala\
-$swift\
-$terraform\
-$vlang\
-$vagrant\
-$zig\
 $nix_shell\
 $conda\
 $memory_usage\
 $aws\
-$gcloud\
 $openstack\
 $azure\
 $env_var\
@@ -67,8 +33,29 @@ $status\
 $shell\
 [└─>](bold green) """
 
+# format = """
+# $username\
+# $directory\
+# $git_branch\
+# $git_commit\
+# $git_state\
+# $git_metrics\
+# $git_status\
+# $python\
+# $nix_shell\
+# $env_var\
+# $crystal\
+# $custom\
+# $cmd_duration\
+# $line_break\
+# $jobs\
+# $battery\
+# $time\
+# $status\
+# $shell"""
+
 [character]
-format = ""
+format = "$"
 
 [git_status]
 conflicted = "🚩"

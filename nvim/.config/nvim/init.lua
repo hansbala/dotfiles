@@ -1,0 +1,8 @@
+require "hans/options"
+require "hans/icons"
+require "hans/keymaps"
+require "hans/colorscheme"
+require "hans/plugins"
+require "hans/lsp"
+require "hans/cmp"
+require "hans/telescope"

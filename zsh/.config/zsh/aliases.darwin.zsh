@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # All Mac related aliases / aliases I want only on mac machines
 # are stored in here
