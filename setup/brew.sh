@@ -36,6 +36,7 @@ brew install node
 brew install bash
 brew install exa
 brew install neovim
+brew install fig
 
 # Brew cask packages (mostly GUIs)
 brew install --cask google-chrome

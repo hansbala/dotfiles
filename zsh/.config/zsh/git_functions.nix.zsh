@@ -8,7 +8,7 @@ function gare {
 
 function greb {
   CURR_BRANCH=`git rev-parse --abbrev-ref HEAD`
-  SELECTED_BRANCH=$(git branch | fzf)
+  SELECTED_BRANCH=$(git branch | fzf | tr -d '[:space:]')
   git checkout $SELECTED_BRANCH
   git pull
   git switch -

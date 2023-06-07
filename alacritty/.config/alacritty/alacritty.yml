@@ -251,4 +251,4 @@ schemes:
       cyan:    '#85dc85'
       white:   '#e4e4e4'
 
-colors: *moonfly
+colors: *gruvbox_material_hard_dark

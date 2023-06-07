@@ -3,7 +3,7 @@
 export GPG_TTY=$(tty)
 export PATH=$PATH:$HOME/workspace/scio
 export PATH=$(gcloud --format='value(installation.sdk_root)' info)/bin:$PATH
-export GOROOT=/opt/homebrew/Cellar/go@1.17/1.17.13/libexec
+export PATH="/opt/homebrew/opt/go@1.17/bin:$HOME/go/bin${PATH+:$PATH}"``
 export GOBIN=~/go/bin
 
 alias xbrew="arch -x86_64 /usr/local/bin/brew"
@@ -35,3 +35,31 @@ function openpr() {
 alias ss2_ini='gs://config-glean-salessavvy2/dynamic.ini'
 
 alias bbt='bazel build //typescript/... && bazel test //typescript/...'
+
+# Gcloud utilities
+
+# Used for switching between gcloud projects
+function switch_me() {
+	gcloud config configurations activate default
+	gcloud config set account hans.bala@glean.com;
+	if [ -z "$1" ]
+	then
+		PROJECT_ID=scio-apps
+	else
+		PROJECT_ID=$1
+	fi
+	echo "Set project to: [$PROJECT_ID]"
+	gcloud config set project $PROJECT_ID;
+	unset GOOGLE_CLOUD_PROJECT
+	unset GOOGLE_APPLICATION_CREDENTIALS
+}
+
+# Used for switching between customer projects
+function switch_customer() {
+	gcloud auth activate-service-account --key-file="$1";
+	PROJECT_ID=`cat "$1" | jq -j .project_id`
+	echo "Set project to: [$PROJECT_ID]"
+	gcloud config set project -q $PROJECT_ID;
+	export GOOGLE_CLOUD_PROJECT=$PROJECT_ID
+	export GOOGLE_APPLICATION_CREDENTIALS=$1
+}
