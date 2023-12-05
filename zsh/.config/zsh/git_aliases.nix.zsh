@@ -6,9 +6,12 @@ alias gco='git checkout $(git branch | fzf)'
 
 alias gl='git pull'
 alias gp='git push'
+alias gpf='git push --force'
 
 alias grsi='git restore --staged $(fzf -m)'
 
 alias gri='git rebase --interactive'
 alias grc='git rebase --continue'
 alias grs='git rebase --skip'
+
+alias gb='fzf_over_branches_and_maybe_create'

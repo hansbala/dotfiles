@@ -1,0 +1,237 @@
+# Color schemes
+schemes:
+  molokai: &molokai
+    # Primary colors
+    primary:
+      background: '0x121212'
+      foreground: '0xbbbbbb'
+    # Normal colors
+    normal:
+      black:   '0x121212'
+      red:     '0xfa2573'
+      green:   '0x98e123'
+      yellow:  '0xdfd460'
+      blue:    '0x1080d0'
+      magenta: '0x8700ff'
+      cyan:    '0x43a8d0'
+      white:   '0xbbbbbb'
+    # Bright colors
+    bright:
+      black:   '0x555555'
+      red:     '0xf6669d'
+      green:   '0xb1e05f'
+      yellow:  '0xfff26d'
+      blue:    '0x00afff'
+      magenta: '0xaf87ff'
+      cyan:    '0x51ceff'
+      white:   '0xffffff'
+  solarized_dark: &solarized_dark
+    # Default colors
+    primary:
+      background: '#002b36'
+      foreground: '#839496'
+    # Cursor colors
+    cursor:
+      text:   '#002b36'
+      cursor: '#839496'
+    # Normal colors
+    normal:
+      black:   '#073642'
+      red:     '#dc322f'
+      green:   '#859900'
+      yellow:  '#b58900'
+      blue:    '#268bd2'
+      magenta: '#d33682'
+      cyan:    '#2aa198'
+      white:   '#eee8d5'
+    # Bright colors
+    bright:
+      black:   '#586e75'
+      red:     '#cb4b16'
+      green:   '#586e75'
+      yellow:  '#657b83'
+      blue:    '#839496'
+      magenta: '#6c71c4'
+      cyan:    '#93a1a1'
+      white:   '#fdf6e3'
+  gruvbox_dark_hard: &gruvbox_dark_hard
+    primary:
+      background: '0x1d2021'
+      foreground: '0xd4be98'
+    normal:
+      black:   '0x32302f'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xd8a657'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xd4be98'
+    bright:
+      black:   '0x32302f'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xd8a657'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xd4be98'
+  gruvbox_light_hard: &gruvbox_light_hard
+    primary:
+      background: '0xf9f5d7'
+      foreground: '0x3c3836'
+    normal:
+      black: '0x282828'
+      red: '0xcc241d'
+      green: '0x98971a'
+      yellow: '0xd79921'
+      blue: '0x458588'
+      magenta: '0xb16286'
+      cyan: '0x689d6a'
+      white: '0xa89984'
+    bright:
+      black: '0x928374'
+      red: '0xfb4934'
+      green: '0xb8bb26'
+      yellow: '0xfabd2f'
+      blue: '0x83a598'
+      magenta: '0xd3869b'
+      cyan: '0x8ec07c'
+      white: '0xebdbb2'
+  solarized_light: &solarized_light
+    primary:
+      background: '0xfdf6e3'
+      foreground: '0x586e75'
+    normal:
+      black:   '0x073642'
+      red:     '0xdc322f'
+      green:   '0x859900'
+      yellow:  '0xb58900'
+      blue:    '0x268bd2'
+      magenta: '0xd33682'
+      cyan:    '0x2aa198'
+      white:   '0xeee8d5'
+    bright:
+      black:   '0x002b36'
+      red:     '0xcb4b16'
+      green:   '0x586e75'
+      yellow:  '0x657b83'
+      blue:    '0x839496'
+      magenta: '0x6c71c4'
+      cyan:    '0x93a1a1'
+      white:   '0xfdf6e3'
+  dracula: &dracula
+    primary:
+      background: '#282a36'
+      foreground: '#f8f8f2'
+      bright_foreground: '#ffffff'
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: '#44475a'
+        background: '#50fa7b'
+      focused_match:
+        foreground: '#44475a'
+        background: '#ffb86c'
+    footer_bar:
+      background: '#282a36'
+      foreground: '#f8f8f2'
+    hints:
+      start:
+        foreground: '#282a36'
+        background: '#f1fa8c'
+      end:
+        foreground: '#f1fa8c'
+        background: '#282a36'
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: CellForeground
+      background: '#44475a'
+    normal:
+      black: '#21222c'
+      red: '#ff5555'
+      green: '#50fa7b'
+      yellow: '#f1fa8c'
+      blue: '#bd93f9'
+      magenta: '#ff79c6'
+      cyan: '#8be9fd'
+      white: '#f8f8f2'
+    bright:
+      black: '#6272a4'
+      red: '#ff6e6e'
+      green: '#69ff94'
+      yellow: '#ffffa5'
+      blue: '#d6acff'
+      magenta: '#ff92df'
+      cyan: '#a4ffff'
+      white: '#ffffff'
+  onedark: &onedark
+    primary:
+      background: '0x1e2127'
+      foreground: '0xabb2bf'
+      bright_foreground: '0xe6efff'
+    normal:
+      black:   '0x1e2127'
+      red:     '0xe06c75'
+      green:   '0x98c379'
+      yellow:  '0xd19a66'
+      blue:    '0x61afef'
+      magenta: '0xc678dd'
+      cyan:    '0x56b6c2'
+      white:   '0x828791'
+    bright:
+      black:   '0x5c6370'
+      red:     '0xe06c75'
+      green:   '0x98c379'
+      yellow:  '0xd19a66'
+      blue:    '0x61afef'
+      magenta: '0xc678dd'
+      cyan:    '0x56b6c2'
+      white:   '0xe6efff'
+    dim:
+      black:   '0x1e2127'
+      red:     '0xe06c75'
+      green:   '0x98c379'
+      yellow:  '0xd19a66'
+      blue:    '0x61afef'
+      magenta: '0xc678dd'
+      cyan:    '0x56b6c2'
+      white:   '0x828791'
+  moonfly: &moonfly
+    primary:
+      background:        '#080808'
+      foreground:        '#b2b2b2'
+      bright_foreground: '#eeeeee'
+    cursor:
+      text:   '#080808'
+      cursor: '#9e9e9e'
+    selection:
+      text:       '#080808'
+      background: '#b2ceee'
+    normal:
+      black:   '#323437'
+      red:     '#ff5454'
+      green:   '#8cc85f'
+      yellow:  '#e3c78a'
+      blue:    '#80a0ff'
+      magenta: '#d183e8'
+      cyan:    '#79dac8'
+      white:   '#c6c6c6'
+    bright:
+      black:   '#949494'
+      red:     '#ff5189'
+      green:   '#36c692'
+      yellow:  '#c2c292'
+      blue:    '#74b2ff'
+      magenta: '#ae81ff'
+      cyan:    '#85dc85'
+      white:   '#e4e4e4'
+
+colors: *gruvbox_dark_hard

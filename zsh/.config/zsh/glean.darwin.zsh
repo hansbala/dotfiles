@@ -4,18 +4,24 @@ export GPG_TTY=$(tty)
 export PATH=$PATH:$HOME/workspace/scio
 export PATH=$(gcloud --format='value(installation.sdk_root)' info)/bin:$PATH
 export PATH="/opt/homebrew/opt/go@1.17/bin:$HOME/go/bin${PATH+:$PATH}"``
+export CLOUDSDK_PYTHON="/Users/hans/workspace/scio/python_scio/scio_env/bin/python"
+export GOROOT=/opt/homebrew/Cellar/go@1.17/1.17.13/libexec
+export GOPATH=/Users/hans/go
 export GOBIN=~/go/bin
+export PATH=$PATH:$GOBIN
 
 alias xbrew="arch -x86_64 /usr/local/bin/brew"
 alias sc='cd ~/workspace/scio'
 alias scenv='source ~/workspace/scio/python_scio/scio_env/bin/activate'
 alias bazel="$HOME/workspace/scio/tools/mybazel.sh"
 
-alias yd='yarn dev'
-
+alias p='pnpm'
+alias pp='p i && p dev'
 alias local_admin='scio run_local -m admin --cloud_sql --scio_instance=salessavvy2 --forge_admin_auth'
 alias local_feqe='scio run_local -m fe qe --cloud_sql --scio_instance=glean-dev'
 alias gcpla='git cherry-pick 2e04f1b57d88a806cce69399e8965eed4fbca5f9'
+
+alias gpass='bw_get_password_glean_google'
 
 # Source the Scio completion framework
 # source $HOME/workspace/scio/scio-completion.bash
@@ -30,6 +36,12 @@ function openpr() {
   branch_name=`git symbolic-ref HEAD | cut -d"/" -f 3,4`;
   pr_url=$github_url"/compare/master..."$branch_name
   open $pr_url
+}
+
+# Runs an upgrade op on glean-dev for testing purposes
+# Example usage: migrate 20230512 YourOperationName
+function migrate() {
+  bazel run //python_scio/deployment:upgrade -- --force_rerun dev-sandbox-334901 release_"$1"."$2";
 }
 
 alias ss2_ini='gs://config-glean-salessavvy2/dynamic.ini'

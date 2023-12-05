@@ -41,5 +41,8 @@ eval "$(starship init zsh)"
 # rust stuff
 source "$HOME/.cargo/env"
 
+# source some private environement Variables
+source "$HOME/.environment_variables"
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

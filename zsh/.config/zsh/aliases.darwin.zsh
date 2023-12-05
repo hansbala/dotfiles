@@ -7,7 +7,6 @@
 alias l='exa --long --header --git --ignore-glob .DS_Store --icons'
 alias ll='l --all'
 alias treev='exa --tree --header --git --ignore-glob .DS_Store --icons --all'
-alias python='python3'
 alias lg='lazygit'
 
 # shortcuts + utilities
@@ -20,7 +19,7 @@ alias extip='curl ipecho.net/plain; echo'
 alias trash='rm -rf $HOME/.Trash/*'
 alias reset_audio='sudo killall coreaudiod && sudo launchctl start com.apple.coreaudiod'
 alias finder='open .'
-alias speed_test='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
+alias speed_test='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
 
 # locations
 alias down='cd $HOME/Downloads'

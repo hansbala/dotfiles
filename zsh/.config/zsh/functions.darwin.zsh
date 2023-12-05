@@ -2,5 +2,16 @@
 
 # update all Wallpapers
 function wallpaper() {
-    sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '$1'" && killall Dock 
+  sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '$1'" && killall Dock 
+}
+
+# switching color modes
+function lightmode() {
+  osascript -l JavaScript -e "Application('System Events').appearancePreferences.darkMode = false" &> /dev/null
+  alacritty-theme gruvbox_light_hard &> /dev/null
+}
+
+function darkmode() {
+  osascript -l JavaScript -e "Application('System Events').appearancePreferences.darkMode = true" &> /dev/null
+  alacritty-theme gruvbox_dark_hard &> /dev/null
 }
