@@ -6,3 +6,4 @@ plugged/
 .netrwhist
 history.zsh_history
 glean.darwin.zsh
+nvim/.config/lua/hans/scio.lua

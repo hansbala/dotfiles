@@ -9,7 +9,7 @@ function bw_get_password_for_id() {
   bw login --apikey &>/dev/null
   session_key=$(bw_get_session_key)
   export BW_SESSION=$session_key
-  bw get password $1 | pbcopy
+  bw get password $1 2> /dev/null | pbcopy
 }
 
 # gets the glean password

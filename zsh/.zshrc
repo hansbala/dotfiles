@@ -1,5 +1,5 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+# Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 # Environment Variables
 export EDITOR='nvim'
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -9,20 +9,18 @@ export DOTFILES_LOCATION="$HOME/workspace/dotfiles"
 export XAUTHORITY="$HOME/.config/Xauthority"
 export LESSHISTFILE="-"
 export FZF_COMPLETION_TRIGGER="**"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export PNPM_HOME="/Users/hans/.local/share/pnpm"
 export PATH=$HOME/bin:~/go/bin:/opt/homebrew/bin:$PNPM_HOME:$PATH
+
+# History Stuff
 export HISTFILE="$XDG_CONFIG_HOME/zsh/history.zsh_history"
-
-# vim style editing for zsh
-# bindkey -v
-
-# share history across all terminals
+export HISTSIZE=999999999
+export SAVEHIST=$HISTSIZE
 setopt share_history
-
-# fpath for zsh
-fpath=($XDG_CONFIG_HOME/zsh/f, $fpath)
+setopt inc_append_history
+setopt hist_ignore_all_dups
 
 # Import all aliases and functions
 for f in $XDG_CONFIG_HOME/zsh/*.nix.zsh; do
@@ -38,11 +36,8 @@ fi
 # Activate the starship prompt
 eval "$(starship init zsh)"
 
-# rust stuff
-source "$HOME/.cargo/env"
-
 # source some private environement Variables
 source "$HOME/.environment_variables"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+# Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"

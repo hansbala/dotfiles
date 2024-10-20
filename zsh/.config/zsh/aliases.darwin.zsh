@@ -4,9 +4,9 @@
 # are stored in here
 
 # better options
-alias l='exa --long --header --git --ignore-glob .DS_Store --icons'
+alias l='eza --long --header --git --ignore-glob .DS_Store --icons'
 alias ll='l --all'
-alias treev='exa --tree --header --git --ignore-glob .DS_Store --icons --all'
+alias treev='eza --tree --header --git --ignore-glob .DS_Store --icons --all'
 alias lg='lazygit'
 
 # shortcuts + utilities
@@ -28,4 +28,9 @@ alias shots='cd $HOME/Pictures/Screenshots'
 alias dev='cd $HOME/Development'
 alias mnt='cd $HOME/Documents/local_mnt'
 alias conf='cd $XDG_CONFIG_HOME'
+
+# code whisperer aliases
+alias ai='cw ai'
+
+alias ctags="`brew --prefix`/bin/ctags"
 

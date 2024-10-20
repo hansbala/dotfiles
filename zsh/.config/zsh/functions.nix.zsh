@@ -1,33 +1,3 @@
-# compile c++ code for competitive programming
-compc() {
-  g++ -std=c++11 -O2 -Wall $1 -o $1.out
-}
-
-# Mounts the Brown CS department file system to ~/Documents/local_mnt/CIT/
-# A prerequisite for this is for OS X Fuse to be installed on the computer
-citmount () {
-  mkdir -p ~/Documents/local_mnt/CIT
-  MNT_PATH=~/Documents/local_mnt/CIT
-  SRV_PATH=hbala@ssh.cs.brown.edu
-  RES=`mount | grep -w "CIT" | wc -l`
-
-  if [ $RES -gt 0 ]; then
-    echo "CIT already mounted to local filesystem"
-  else
-    mkdir -p $MNT_PATH
-    sshfs -o reconnect $SRV_PATH:/home/hbala $MNT_PATH -ovolname=CIT -i $HOME/.ssh/cit_hbala \
-      && \
-    echo "Successfully mounted CIT to local filesystem"
-  fi
-}
-
-# creates a venv in the current directory with the requirements.txt
-create_venv () {
-  virtualenv --python=python3.8 venv
-  source ./venv/bin/activate
-  [ -f requirements.txt ] && pip3 install -r requirements.txt
-}
-
 # Compress a video file to mp4 using ffmoeg
 compress_video() {
   ffmpeg -i $1 -vcodec h264 -acodec mp2 $1.mp4
@@ -55,11 +25,6 @@ function git_prepare() {
     fi
 
     zle accept-line
-}
-# zle -N git_prepare
-
-function tn() {
-  tmux new-session -s $1
 }
 
 # cd into any directory under the cwd

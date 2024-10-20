@@ -1,5 +1,8 @@
+command_timeout = 2000
+
+# TODO: Figure out how to add gcloud conditionally
 format = """
-[┌───────────────────>](bold green) \
+[┌─>](bold green) \
 $username\
 $hostname\
 $shlvl\
@@ -58,15 +61,21 @@ $shell\
 format = "$"
 
 [git_status]
-conflicted = "🚩"
-ahead = "🚀"
-behind = "🐢"
-diverged = "🚧"
-up_to_date = "✓"
-untracked = "🆕"
-stashed = "📦"
-modified = "📝"
-staged = '[++\($count\)](green)'
-renamed = "👅"
-deleted = "🗑"
+#symbol=''
+#conflicted = "🚩"
+#ahead = "🚀"
+#behind = "🐢"
+#diverged = "🚧"
+#up_to_date = "✓"
+#untracked = "🆕"
+#stashed = "📦"
+#modified = "📝"
+#staged = '[++\($count\)](green)'
+#renamed = "👅"
+#deleted = "🗑"
+
+[gcloud]
+format = '[(\($project\))]($style) '
+[gcloud.project_aliases]
+#dev-sandbox-334901 = 'glean-dev'
 
