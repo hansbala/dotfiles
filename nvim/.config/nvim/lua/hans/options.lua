@@ -14,7 +14,7 @@ vim.o.splitbelow = true
 vim.o.scrolloff = 999
 
 vim.cmd [[ set noswapfile ]]
-vim.cmd([[ colorscheme quiet ]])
+-- vim.cmd([[ colorscheme quiet ]])
 
 --Line numbers
 vim.wo.number = true

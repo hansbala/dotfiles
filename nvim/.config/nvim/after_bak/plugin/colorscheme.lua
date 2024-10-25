@@ -3,4 +3,4 @@
 -- vim.cmd([[ colorscheme gruvbox ]])
 
 -- vim.cmd([[ colorscheme monokai_pro ]])
-vim.cmd([[ colorscheme quiet ]])
+-- vim.cmd([[ colorscheme quiet ]])
