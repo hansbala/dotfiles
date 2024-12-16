@@ -12,6 +12,8 @@ vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 
+vim.keymap.set('n', '<C-l>', ':nohl<CR>')
+
 
 -- file explorer
 vim.keymap.set('n', '<C-n>', ':NvimTreeFindFileToggle<CR>')
@@ -25,11 +27,3 @@ vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true, silent = true
 -- Yank to system clipboard using leader + Y (for the whole line)
 vim.api.nvim_set_keymap('n', '<leader>Y', '"+Y', { noremap = true, silent = true })
 
--- Auto-insert matching pairs (useful in coding).
--- TODO: Figure out a better mechanism here.
-vim.api.nvim_set_keymap('i', '{', '{}<Left>', { noremap = true })
-vim.api.nvim_set_keymap('i', '(', '()<Left>', { noremap = true })
-vim.api.nvim_set_keymap('i', '[', '[]<Left>', { noremap = true })
-vim.api.nvim_set_keymap('i', '"', '""<Left>', { noremap = true })
-vim.api.nvim_set_keymap('i', "'", "''<Left>", { noremap = true })
-vim.api.nvim_set_keymap('i', '`', '``<Left>', { noremap = true })

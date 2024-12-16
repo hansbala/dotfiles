@@ -1,5 +1,3 @@
-# Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 # Environment Variables
 export EDITOR='nvim'
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -12,6 +10,7 @@ export FZF_COMPLETION_TRIGGER="**"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export PNPM_HOME="/Users/hans/.local/share/pnpm"
+export PATH=/usr/local/go/bin:$PATH
 export PATH=$HOME/bin:~/go/bin:/opt/homebrew/bin:$PNPM_HOME:$PATH
 
 # History Stuff
@@ -33,11 +32,15 @@ if [[ $(uname -s) == "Darwin" ]]; then
   done
 fi
 
+# Linux
+if [[ $(uname -s) == "Linux" ]]; then
+  for f in $XDG_CONFIG_HOME/zsh/*.linux.zsh; do
+    source $f
+  done
+fi
+
 # Activate the starship prompt
 eval "$(starship init zsh)"
 
 # source some private environement Variables
 source "$HOME/.environment_variables"
-
-# Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
