@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>1897B4EC-03EB-47E2-8320-7351FC1FC7B0</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>gl</string>
+			<key>text</key>
+			<string>Search Glean for {query}</string>
+			<key>url</key>
+			<string>https://canary.glean.com/search?q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>8CB5CD62-38A1-4A2F-BD91-45DD23B18D91</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>myd</string>
+			<key>text</key>
+			<string>Brown Drive</string>
+			<key>url</key>
+			<string>https://drive.google.com/drive/u/1/my-drive</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>9732C67C-BC18-4B1A-A315-CAC65845295A</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>myds</string>
+			<key>text</key>
+			<string>Search Brown Drive for '{query}'</string>
+			<key>url</key>
+			<string>https://drive.google.com/drive/u/1/search?q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>B5B90C43-AEC1-4C14-AB94-358FDA4B6AA9</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>keep</string>
+			<key>text</key>
+			<string>Google Keep</string>
+			<key>url</key>
+			<string>http://keep.google.com</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>D5378DC9-5021-4993-A306-0CE333889C0D</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>bcal</string>
+			<key>text</key>
+			<string>Brown Calendar</string>
+			<key>url</key>
+			<string>https://calendar.google.com/calendar/b/1/r</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>FCB21971-D967-45A0-9B36-B821A812D796</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>chat</string>
+			<key>text</key>
+			<string>GleanChat</string>
+			<key>url</key>
+			<string>https://canary.glean.com/chat?chatAgent=GPT&amp;chatMode=QUICK&amp;message={query}&amp;source=hans-from-alfred</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

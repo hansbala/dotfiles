@@ -7,3 +7,6 @@ plugged/
 history.zsh_history
 glean.darwin.zsh
 nvim/.config/lua/hans/scio.lua
+**/preferences/local/*
+**/Alfred.alfredpreferences/remote/*
+**/Alfred.alfredpreferences/resources/*
