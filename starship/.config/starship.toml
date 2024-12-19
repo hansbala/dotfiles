@@ -28,6 +28,7 @@ $crystal\
 $custom\
 $sudo\
 $cmd_duration\
+$battery\
 $line_break\
 $jobs\
 $time\
