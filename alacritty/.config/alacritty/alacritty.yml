@@ -1,7 +1,6 @@
 import:
   - "/Users/hans/.config/alacritty/color.yml"
 
-# Window configuration
 window:
   dimensions:
     columns: 120
@@ -12,16 +11,11 @@ window:
   decorations: none
   startup_mode: Maximized
   opacity: 1.0
-
 scrolling:
   history: 10000
-
-# Font configuration
 font:
-  # Normal (roman) font face
   normal:
       family: AnonymicePro Nerd Font Mono
-
   size: 32.0
 
 # Some color schemes do not behave well without this setting (looking @ you, Solarized :'()
@@ -34,4 +28,17 @@ key_bindings:
   - { key: Back,  mods: Command, chars: "\x15" } # Delete line
   - { key: Left,  mods: Command, chars: "\x1bOH" } # Home
   - { key: Right, mods: Command, chars: "\x1bOF" } # End
+  # Mac-OS style keybindings for tmux to move around windows. CMD+1 to first tab, ... 
+  - { key: Key1, mods: Command, chars: "\x5c\x31" } # Command+1 sends \1
+  - { key: Key2, mods: Command, chars: "\x5c\x32" } # Command+2 sends \2
+  - { key: Key3, mods: Command, chars: "\x5c\x33" } # Command+3 sends \3
+  - { key: Key4, mods: Command, chars: "\x5c\x34" } # Command+4 sends \4
+  - { key: Key5, mods: Command, chars: "\x5c\x35" } # Command+5 sends \5
+  - { key: Key6, mods: Command, chars: "\x5c\x36" } # Command+6 sends \6
+  - { key: Key7, mods: Command, chars: "\x5c\x37" } # Command+7 sends \7
+  - { key: Key8, mods: Command, chars: "\x5c\x38" } # Command+8 sends \8
+  - { key: Key9, mods: Command, chars: "\x5c\x39" } # Command+9 sends \9
+  - { key: W,    mods: Command, chars: "\x5c\x78" } # Command+W sends \x
+  - { key: T,    mods: Command, chars: "\x5C\x63" } # Command+T sends \c
+
 

@@ -259,4 +259,4 @@ schemes:
       cyan: '0x1b7c83'
       white: '0x6e7781'
 
-colors: *github_light
+colors: *moonfly
