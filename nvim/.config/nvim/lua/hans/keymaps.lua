@@ -13,6 +13,7 @@ vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 
 vim.keymap.set('n', '<C-l>', ':nohl<CR>')
+vim.keymap.set('n', '<C-q>', ':q<CR>')
 
 
 -- file explorer
@@ -26,4 +27,3 @@ vim.api.nvim_set_keymap('n', '<leader>y', '"+y', { noremap = true, silent = true
 vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true, silent = true })
 -- Yank to system clipboard using leader + Y (for the whole line)
 vim.api.nvim_set_keymap('n', '<leader>Y', '"+Y', { noremap = true, silent = true })
-

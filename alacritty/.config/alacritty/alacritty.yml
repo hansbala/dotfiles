@@ -6,8 +6,8 @@ window:
     columns: 120
     lines: 90
   padding:
-    x: 0
-    y: 0
+    x: 20
+    y: 20
   decorations: none
   startup_mode: Maximized
   opacity: 1.0

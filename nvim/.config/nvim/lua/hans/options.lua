@@ -12,7 +12,7 @@ vim.o.cursorline = true
 -- better default splits
 vim.o.splitright = true
 vim.o.splitbelow = true
-vim.o.scrolloff = 999
+-- vim.o.scrolloff = 999
 
 vim.cmd [[ set noswapfile ]]
 

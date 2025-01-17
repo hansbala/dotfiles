@@ -1,10 +1,7 @@
 local lsp = require('lspconfig')
-local cfg = {}
 
-local servers = {"tsserver", "eslint"}
+local servers = { "tsserver", "eslint", "gopls" }
 
 for _, server in pairs(servers) do
   lsp[server].setup {}
 end
-
-
