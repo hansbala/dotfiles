@@ -18,6 +18,7 @@ alias cs1951a_venv='source ~/Development/datascience/cs1951a_venv/bin/activate'
 alias sq='sqlite3'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts" --show-progress'
 alias lg='lazygit'
+alias tmux-copy="wl-copy"
 
 # Access common config files and directories
 alias dotfiles='cd $DOTFILES_LOCATION'
