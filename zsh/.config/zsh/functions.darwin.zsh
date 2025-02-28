@@ -12,10 +12,8 @@ function it2prof() {
 # switching color modes
 function lightmode() {
   osascript -l JavaScript -e "Application('System Events').appearancePreferences.darkMode = false" &> /dev/null
-  alacritty-theme github_light &> /dev/null
 }
 
 function darkmode() {
   osascript -l JavaScript -e "Application('System Events').appearancePreferences.darkMode = true" &> /dev/null
-  alacritty-theme moonfly &> /dev/null
 }
