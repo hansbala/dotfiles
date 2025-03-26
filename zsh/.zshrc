@@ -44,3 +44,4 @@ eval "$(starship init zsh)"
 
 # source some private environement Variables
 source "$HOME/.environment_variables"
+export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"

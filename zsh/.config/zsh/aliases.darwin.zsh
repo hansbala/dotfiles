@@ -21,6 +21,7 @@ alias reset_audio='sudo killall coreaudiod && sudo launchctl start com.apple.cor
 alias finder='open .'
 alias speed_test='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
 alias tmux-copy="pbcopy"
+alias mouse="killall LogiMgrDaemon"
 
 # locations
 alias down='cd $HOME/Downloads'
