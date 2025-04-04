@@ -19,6 +19,7 @@ alias sq='sqlite3'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts" --show-progress'
 alias lg='lazygit'
 alias tmux-copy="wl-copy"
+alias nv='cd $HOME/.config/nvim && nvim'
 
 # Access common config files and directories
 alias dotfiles='cd $DOTFILES_LOCATION'

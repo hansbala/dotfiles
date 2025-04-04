@@ -1,11 +1,15 @@
 require("lazy").setup({
-  { "ellisonleao/gruvbox.nvim",                 priority = 1000, config = true, opts = ... },
+  ---------- UI ----------
+  { "ellisonleao/gruvbox.nvim",    priority = 1000,      config = true, opts = ... },
   "tanvirtin/monokai.nvim",
+  { 'projekt0n/github-nvim-theme', name = 'github-theme' },
+  { 'f-person/auto-dark-mode.nvim' },
+  -------- END UI --------
+
   "nvim-tree/nvim-tree.lua",
-  -- fugitive
   "tpope/vim-fugitive",
+
   ---------- LSP ----------
-  -- Lazy-load lsp-zero.nvim
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
@@ -47,15 +51,19 @@ require("lazy").setup({
     },
   },
   ---------- END LSP ----------
+  -- {
+  --   'nvim-telescope/telescope.nvim',
+  --   tag = '0.1.6',
+  --   dependencies = { 'nvim-lua/plenary.nvim' }
+  -- },
+  -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+  -- {
+  --   'zbirenbaum/copilot.lua',
+  -- },
   {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.6',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {}
   },
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-  {
-    'zbirenbaum/copilot.lua',
-  },
-  { 'f-person/auto-dark-mode.nvim' },
-  { 'projekt0n/github-nvim-theme', name = 'github-theme' }
 })

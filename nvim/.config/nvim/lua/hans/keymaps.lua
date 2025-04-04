@@ -1,3 +1,5 @@
+local fzf_lua = require("fzf-lua")
+
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 
 -- I scroll like this lol
@@ -18,6 +20,11 @@ vim.keymap.set('n', '<C-q>', ':q<CR>')
 
 -- file explorer
 vim.keymap.set('n', '<C-n>', ':NvimTreeFindFileToggle<CR>')
+
+-- finding stuff
+vim.keymap.set('n', '<leader>ff', fzf_lua.files, {})
+vim.keymap.set('n', '<leader>fg', fzf_lua.grep_project, {})
+vim.keymap.set('n', '<leader>/', fzf_lua.lines, {})
 
 -- git toggles
 vim.keymap.set('n', '<leader>g', ':Git blame<CR>')

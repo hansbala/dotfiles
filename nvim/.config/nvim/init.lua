@@ -15,8 +15,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("hans.options")
-require("hans.keymaps")
+-- Plugins always first for dependency order.
 require("hans.plugins")
---require("hans.scio")
-require("hans.general")
 require("hans.auto-dark-mode")
+require("hans.fzf-lua")
+require("hans.keymaps")
+require("hans.lsp")
+require("hans.nvimtree")
+-- require("hans.scio")

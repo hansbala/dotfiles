@@ -5,8 +5,8 @@ function OpenGithubUrl()
   local cur_file_path = vim.fn.expand('%:p')
   local software_idx = cur_file_path:find('scio/')
   if not software_idx then
-      vim.api.nvim_out_write('Current file doesn\'t seem to be in scio software repo. Cannot open in GitHub\n')
-      return
+    vim.api.nvim_out_write('Current file doesn\'t seem to be in scio software repo. Cannot open in GitHub\n')
+    return
   end
   -- Calculate the relative path within the repository
   local software_offset = #('scio/')
@@ -15,7 +15,7 @@ function OpenGithubUrl()
   local start_line = vim.fn.line('v')
   local end_line = vim.fn.line('.')
   if start_line > end_line then
-      start_line, end_line = end_line, start_line
+    start_line, end_line = end_line, start_line
   end
   local linenum_str = string.format('#L%d-L%d', start_line, end_line)
   -- Construct the full GitHub URL
@@ -53,4 +53,3 @@ vim.api.nvim_set_keymap('n', '<leader>b', ':lua OpenGithubUrl()<CR>', { noremap 
 vim.api.nvim_set_keymap('v', '<leader>b', ':lua OpenGithubUrl()<CR>', { noremap = true, silent = true })
 -- Opens PR from current line
 vim.api.nvim_set_keymap('n', '<leader>pr', ':lua OpenPRFromBlame()<CR>', { noremap = true, silent = true })
-
