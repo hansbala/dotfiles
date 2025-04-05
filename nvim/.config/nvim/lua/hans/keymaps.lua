@@ -23,8 +23,13 @@ vim.keymap.set('n', '<C-n>', ':NvimTreeFindFileToggle<CR>')
 
 -- finding stuff
 vim.keymap.set('n', '<leader>ff', fzf_lua.files, {})
-vim.keymap.set('n', '<leader>fg', fzf_lua.grep_project, {})
+vim.keymap.set('n', '<leader>fg', fzf_lua.live_grep_glob, {})
 vim.keymap.set('n', '<leader>/', fzf_lua.lines, {})
+
+-- tab stuff inspired by tpope
+vim.keymap.set('n', '<C-t>', ':tabnew<CR>', {})
+vim.keymap.set('n', '[t', ':tabp<CR>', {})
+vim.keymap.set('n', ']t', ':tabn<CR>', {})
 
 -- git toggles
 vim.keymap.set('n', '<leader>g', ':Git blame<CR>')

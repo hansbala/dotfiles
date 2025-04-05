@@ -8,6 +8,6 @@ auto_dark_mode.setup({
   end,
   set_light_mode = function()
     vim.api.nvim_set_option_value('background', 'light', {})
-    vim.cmd('colorscheme github_light')
+    vim.cmd('colorscheme quiet')
   end,
 })
