@@ -10,3 +10,4 @@ nvim/.config/lua/hans/scio.lua
 **/preferences/local/*
 **/Alfred.alfredpreferences/remote/*
 **/Alfred.alfredpreferences/resources/*
+ghostty/.config/ghostty/config

@@ -39,6 +39,13 @@ if [[ $(uname -s) == "Linux" ]]; then
   done
 fi
 
+# Automatically point to the right OS-specific file.
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  ln -sf $XDG_CONFIG_HOME/ghostty/config.macos $XDG_CONFIG_HOME/ghostty/config
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  ln -sf $XDG_CONFIG_HOME/ghostty/config.linux $XDG_CONFIG_HOME/ghostty/config
+fi
+
 # Activate the starship prompt
 eval "$(starship init zsh)"
 
