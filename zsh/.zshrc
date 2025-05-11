@@ -46,6 +46,15 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
   ln -sf $XDG_CONFIG_HOME/ghostty/config.linux $XDG_CONFIG_HOME/ghostty/config
 fi
 
+# SSH does not start and source keys automatically.
+if [[ "$(uname)" == "Linux" ]]; then
+  if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent -s | grep -v '^echo' > ~/.ssh/agent.env
+  fi
+  [[ -f ~/.ssh/agent.env ]] && source ~/.ssh/agent.env
+  ssh-add -l 2>/dev/null | grep -q github_personal_bishop || ssh-add ~/.ssh/github_personal_bishop 2>/dev/null
+fi
+
 # Activate the starship prompt
 eval "$(starship init zsh)"
 
