@@ -28,6 +28,7 @@ vim.keymap.set('n', '<leader>/', fzf_lua.lines, {})
 
 -- tab stuff inspired by tpope
 vim.keymap.set('n', '<C-t>', ':tabnew<CR>', {})
+vim.keymap.set('n', '<leader>tn', ':tabn<CR>', {})
 vim.keymap.set('n', '[t', ':tabp<CR>', {})
 vim.keymap.set('n', ']t', ':tabn<CR>', {})
 

@@ -6,8 +6,16 @@ require("lazy").setup({
   { 'f-person/auto-dark-mode.nvim' },
   -------- END UI --------
 
+  ------- Utilities -------
   "nvim-tree/nvim-tree.lua",
   "tpope/vim-fugitive",
+  "tpope/vim-unimpaired",
+  -- "zbirenbaum/copilot.lua",
+  {
+    "ibhagwan/fzf-lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  ----- END Utilities -----
 
   ---------- LSP ----------
   {
@@ -51,19 +59,4 @@ require("lazy").setup({
     },
   },
   ---------- END LSP ----------
-  -- {
-  --   'nvim-telescope/telescope.nvim',
-  --   tag = '0.1.6',
-  --   dependencies = { 'nvim-lua/plenary.nvim' }
-  -- },
-  -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-  -- {
-  --   'zbirenbaum/copilot.lua',
-  -- },
-  {
-    "ibhagwan/fzf-lua",
-    -- optional for icon support
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {}
-  },
 })
