@@ -23,6 +23,11 @@ vim.keymap.set('n', '<C-n>', ':NvimTreeFindFileToggle<CR>')
 
 -- finding stuff
 vim.keymap.set('n', '<leader>ff', fzf_lua.files, {})
+vim.keymap.set('n', '<leader>fa', function()
+  require('fzf-lua').files({
+    rg_opts = "--color=never --files --hidden --follow --no-ignore"
+  })
+end, { desc = "FZF: Find all files (including hidden/unignored)" })
 vim.keymap.set('n', '<leader>fg', fzf_lua.live_grep_glob, {})
 vim.keymap.set('n', '<leader>/', fzf_lua.lines, {})
 
