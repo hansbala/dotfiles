@@ -10,7 +10,14 @@ require("lazy").setup({
   "nvim-tree/nvim-tree.lua",
   "tpope/vim-fugitive",
   "tpope/vim-unimpaired",
-  -- "zbirenbaum/copilot.lua",
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("hans.copilot")()
+    end,
+  },
   {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
