@@ -8,7 +8,7 @@ alias gl='git pull'
 alias gp='git push'
 alias gpo='git push -u origin HEAD'
 alias gpf='git push --force'
-alias gpn='git push --force --no-verify'
+alias gpfn='git push --force --no-verify'
 
 alias grsi='git restore --staged $(fzf -m)'
 
@@ -20,3 +20,5 @@ alias gb='fzf_over_branches_and_maybe_create'
 
 alias gc='git commit'
 alias gcn='git commit --no-verify'
+alias gca='git commit --amend'
+alias gcan='git commit --amend --no-verify'
