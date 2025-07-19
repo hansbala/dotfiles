@@ -20,30 +20,7 @@ lsp.configure('lua-language-server', {
   }
 })
 
-lsp.configure('gopls', {
-  settings = {
-    gopls = {
-      env = {
-        GOPACKAGESDRIVER = vim.fn.fnamemodify("./tools/gopackagesdriver.sh", ":p"),
-      },
-      hints = {
-        assignVariableTypes = false,
-        compositeLiteralFields = false,
-        compositeLiteralTypes = false,
-        constantValues = false,
-        functionTypeParameters = false,
-        parameterNames = false,
-        rangeVariableTypes = false,
-      },
-      directoryFilters = {
-        "-bazel-bin",
-        "-bazel-out",
-        "-bazel-testlogs",
-        "-bazel-LOMP",
-      },
-    },
-  }
-})
+lsp.configure('gopls', {})
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
