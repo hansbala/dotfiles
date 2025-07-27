@@ -12,6 +12,8 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export PNPM_HOME="/Users/hans/.local/share/pnpm"
 export PATH=/usr/local/go/bin:$PATH
 export PATH=$HOME/bin:~/go/bin:/opt/homebrew/bin:$PNPM_HOME:$PATH
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:$PATH"
 
 # History Stuff
 export HISTFILE="$XDG_CONFIG_HOME/zsh/history.zsh_history"

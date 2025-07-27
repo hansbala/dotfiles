@@ -22,6 +22,11 @@ lsp.configure('lua-language-server', {
 
 lsp.configure('gopls', {})
 
+lsp.configure('dartls', {
+  cmd = { "dart", "language-server", "--protocol=lsp" },
+  filetypes = { "dart" },
+})
+
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
