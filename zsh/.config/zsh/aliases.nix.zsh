@@ -20,6 +20,7 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts" --show-progress'
 alias lg='lazygit'
 alias tmux-copy="wl-copy"
 alias nv='cd $HOME/.config/nvim && nvim'
+alias opendiff='sh $XDG_CONFIG_HOME/zsh/scripts/diffy.sh'
 
 # Access common config files and directories
 alias dotfiles='cd $DOTFILES_LOCATION'
