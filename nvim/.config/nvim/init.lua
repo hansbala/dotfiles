@@ -3,16 +3,20 @@ vim.pack.add({
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/williamboman/mason.nvim",
   "https://github.com/saghen/blink.cmp",
+  "https://github.com/zbirenbaum/copilot.lua",
+  "https://github.com/giuxtaposition/blink-cmp-copilot",
   "https://github.com/nvim-treesitter/nvim-treesitter",
   "https://github.com/ibhagwan/fzf-lua",
   "https://github.com/nvim-tree/nvim-tree.lua",
   "https://github.com/tpope/vim-fugitive",
   "https://github.com/EdenEast/nightfox.nvim",
+  "https://github.com/bluz71/vim-moonfly-colors",
   "https://github.com/f-person/auto-dark-mode.nvim",
 })
 plugin_lspconfig = require('lspconfig')
 plugin_mason = require('mason')
 plugin_blink_cmp = require('blink.cmp')
+plugin_copilot = require('copilot')
 plugin_nvim_tree = require('nvim-tree')
 plugin_fzf_lua = require('fzf-lua')
 plugin_nvim_treesitter = require('nvim-treesitter.configs')
@@ -26,13 +30,25 @@ plugin_mason.setup({})
 plugin_blink_cmp.setup({
   keymap = { preset = "enter" },
   sources = {
-    default = { "lsp", "path", "buffer" },
+    default = { "lsp", "path", "buffer", "copilot" },
+    providers = {
+      copilot = {
+        name = "copilot",
+        module = "blink-cmp-copilot",
+        score_offset = 100,
+        async = true,
+      },
+    },
   },
   completion = {
     documentation = { auto_show = true },
     accept = { auto_brackets = { enabled = true } },
   },
   fuzzy = { implementation = "lua" },
+})
+plugin_copilot.setup({
+  suggestion = { enabled = false },
+  panel = { enabled = false },
 })
 plugin_nvim_tree.setup({
   sort_by = "case_sensitive",
@@ -58,7 +74,7 @@ plugin_auto_darkmode.setup({
   update_interval = 1000,
   set_dark_mode = function()
     vim.api.nvim_set_option_value('background', 'dark', {})
-    vim.cmd('colorscheme carbonfox')
+    vim.cmd('colorscheme moonfly')
   end,
   set_light_mode = function()
     vim.api.nvim_set_option_value('background', 'light', {})
@@ -125,3 +141,4 @@ vim.keymap.set("n", "gr", vim.lsp.buf.references)
 vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename)
 vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help)
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>e", ':Copilot toggle<CR>')
