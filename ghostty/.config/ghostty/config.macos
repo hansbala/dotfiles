@@ -1,3 +1,3 @@
-theme = dark:Monokai Soda,light:Raycast_Light
-macos-titlebar-style = hidden
+theme = dark:Monokai Soda,light:Raycast Light
+# macos-titlebar-style = hidden
 font-family = "Iosevka Term"

@@ -1,18 +1,37 @@
 {
-    "window.zoomLevel": 0,
-    "editor.minimap.enabled": false,
-    "workbench.activityBar.visible": false,
-    "workbench.statusBar.visible": false,
-    "breadcrumbs.enabled": false,
-    "git.decorations.enabled": false,
-    "git.enabled": false,
-    "editor.cursorBlinking": "phase",
-    "editor.cursorStyle": "block",
-    "editor.fontSize": 18,
-    "editor.fontWeight": "500",
-    "explorer.confirmDelete": false,
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "Just Black",
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "window.zoomLevel": 1,
+  "editor.minimap.enabled": false,
+  "git.decorations.enabled": false,
+  "editor.cursorBlinking": "solid",
+  "editor.cursorStyle": "line",
+  "editor.fontSize": 20,
+  "editor.fontWeight": "400",
+  "explorer.confirmDelete": false,
+  "editor.fontFamily": "Iosevka Term",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["J"],
+      "after": ["7", "j"]
+    },
+    {
+      "before": ["K"],
+      "after": ["7", "k"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["J"],
+      "after": ["7", "j"]
+    },
+    {
+      "before": ["K"],
+      "after": ["7", "k"]
+    }
+  ],
+  "window.commandCenter": false,
+  "workbench.editor.enablePreview": false,
+  "workbench.activityBar.location": "hidden",
+  "go.toolsManagement.autoUpdate": true,
+  "cursor.cpp.disabledLanguages": ["plaintext", "markdown", "scminput"]
 }
+
