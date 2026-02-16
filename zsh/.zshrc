@@ -58,7 +58,9 @@ fi
 # fi
 
 # Rust env sourcing
-source "$HOME/.cargo/env"
+if [[ -f "$HOME/.cargo/env" ]]; then
+  source "$HOME/.cargo/env"
+fi
 
 # Activate the starship prompt
 eval "$(starship init zsh)"
