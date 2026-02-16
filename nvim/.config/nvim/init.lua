@@ -142,3 +142,8 @@ vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename)
 vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help)
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>e", ':Copilot toggle<CR>')
+vim.keymap.set("v", "<leader>cp",
+  [[:<C-u>let @+ = expand('%:.') . '(' . line("'<") . '-' . line("'>") . ')' <CR>:echo "Path with lines copied!"<CR>]],
+  opts
+)
+
