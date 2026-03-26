@@ -1,0 +1,136 @@
+tap "hansbala/tap"
+tap "neovim/neovim"
+tap "ngrok/ngrok"
+tap "sst/tap"
+tap "stripe/stripe-cli"
+tap "zzho325/tap"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
+brew "cloudflared"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Docker CLI plugin for extended build capabilities with BuildKit
+brew "docker-buildx"
+# Modern, maintained replacement for ls
+brew "eza"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Git extension for versioning large files
+brew "git-lfs"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Fast, highly customisable system info script
+brew "neofetch"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim", args: ["HEAD"]
+# SIMD-accelerated C++ JSON parser
+brew "simdjson"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node@24"
+# Create, run, and share large language models (LLMs)
+brew "ollama"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Cross-platform library for audio I/O
+brew "portaudio"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
+# Easiest, most secure way to use WireGuard and 2FA
+brew "tailscale"
+# Terminal multiplexer
+brew "tmux"
+# Lightweight BitTorrent client
+brew "transmission-cli"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Internet file retriever
+brew "wget"
+# CLI for Git worktree management, designed for parallel AI agent workflows
+brew "worktrunk"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# UNIX shell (command interpreter)
+brew "zsh"
+# Natural Language to Shell Command Translator
+brew "hansbala/tap/how"
+# The AI coding agent built for the terminal.
+brew "sst/tap/opencode"
+# Stripe CLI utility
+brew "stripe/stripe-cli/stripe"
+# Terminal-based chat client for LLMs in Rust
+brew "zzho325/tap/cookie"
+# Application launcher and productivity software
+cask "alfred"
+# Anthropic's official Claude AI desktop app
+cask "claude"
+# Terminal-based AI coding assistant
+cask "claude-code"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
+# Disk space visualiser
+cask "daisydisk"
+# Client for the Dropbox cloud storage service
+cask "dropbox"
+# Web browser
+cask "firefox"
+# UI toolkit for building applications for mobile, web and desktop
+cask "flutter"
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "gcloud-cli"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Web browser
+cask "google-chrome"
+# Menu bar calendar
+cask "itsycal"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok/ngrok/ngrok"
+# Open-source software for live streaming and screen recording
+cask "obs"
+# Home media server
+cask "plex-media-server"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# Screenshot measurement and annotation tool
+cask "shottr"
+# Mesh VPN based on WireGuard
+cask "tailscale-app"
+# Remote access and connectivity software focused on security
+cask "teamviewer"
+# Open-source BitTorrent client
+cask "transmission"
+# Multimedia player
+cask "vlc"
+# Connect to Windows
+cask "windows-app"
+go "golang.org/x/tools/gopls"
+go "go.uber.org/mock/mockgen"
+go "honnef.co/go/tools/cmd/staticcheck"
+go "github.com/wailsapp/wails/v2/cmd/wails"
