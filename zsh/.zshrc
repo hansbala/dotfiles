@@ -1,21 +1,42 @@
-# Environment Variables
-export EDITOR='nvim'
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+export EDITOR='nvim'
 export DOTFILES_LOCATION="$HOME/workspace/dotfiles"
-export XAUTHORITY="$HOME/.config/Xauthority"
+
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export GOPATH="$XDG_DATA_HOME/go"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export BUNDLE_USER_HOME="$XDG_CONFIG_HOME/bundle"
+export GEM_HOME="$XDG_DATA_HOME/gem"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export OLLAMA_HOME="$XDG_DATA_HOME/ollama"
+export PUB_CACHE="$XDG_DATA_HOME/pub-cache"
+export CP_HOME_DIR="$XDG_CONFIG_HOME/cocoapods"
+
+export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
+export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
+export NODE_REPL_HISTORY="$XDG_STATE_HOME/node_repl_history"
 export LESSHISTFILE="-"
-export FZF_COMPLETION_TRIGGER="**"
+
+export XAUTHORITY="$XDG_CONFIG_HOME/Xauthority"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
+export FZF_COMPLETION_TRIGGER="**"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-export PNPM_HOME="/Users/hans/.local/share/pnpm"
-export PATH=/usr/local/go/bin:$PATH
-export PATH=$HOME/bin:~/go/bin:/opt/homebrew/bin:$PNPM_HOME:$PATH
+export DOCKER_HOST="unix://${XDG_CONFIG_HOME}/colima/default/docker.sock"
+
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:$PATH"
+export PATH="$CARGO_HOME/bin:$GOPATH/bin:$PNPM_HOME:$HOME/.local/bin:$HOME/bin:$PATH"
 
-# History Stuff
 export HISTFILE="$XDG_CONFIG_HOME/zsh/history.zsh_history"
 export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
@@ -23,50 +44,12 @@ setopt share_history
 setopt inc_append_history
 setopt hist_ignore_all_dups
 
-# Import all aliases and functions
 for f in $XDG_CONFIG_HOME/zsh/*.nix.zsh; do
   source $f
 done
-# Import some extra aliases and functions which are Mac specific
-if [[ $(uname -s) == "Darwin" ]]; then
-  for f in $XDG_CONFIG_HOME/zsh/*.darwin.zsh; do
-    source $f
-  done
+
+if [[ -f "$XDG_CONFIG_HOME/environment_variables" ]]; then
+  source "$XDG_CONFIG_HOME/environment_variables"
 fi
 
-# Linux
-if [[ $(uname -s) == "Linux" ]]; then
-  for f in $XDG_CONFIG_HOME/zsh/*.linux.zsh; do
-    source $f
-  done
-fi
-
-# Automatically point to the right OS-specific file.
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  ln -sf $XDG_CONFIG_HOME/ghostty/config.macos $XDG_CONFIG_HOME/ghostty/config
-# elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  # ln -sf $XDG_CONFIG_HOME/ghostty/config.linux $XDG_CONFIG_HOME/ghostty/config
-fi
-
-# SSH does not start and source keys automatically.
-# if [[ "$(uname)" == "Linux" ]]; then
-#   if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-#     ssh-agent -s | grep -v '^echo' > ~/.ssh/agent.env
-#   fi
-#   [[ -f ~/.ssh/agent.env ]] && source ~/.ssh/agent.env
-#   ssh-add -l 2>/dev/null | grep -q github_personal_bishop || ssh-add ~/.ssh/github_personal_bishop 2>/dev/null
-# fi
-
-# Rust env sourcing
-if [[ -f "$HOME/.cargo/env" ]]; then
-  source "$HOME/.cargo/env"
-fi
-
-# Activate the starship prompt
 eval "$(starship init zsh)"
-
-# source some private environement Variables
-if [[ -f "$HOME/.environment_variables" ]]; then
-  source "$HOME/.environment_variables"
-fi
-export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
