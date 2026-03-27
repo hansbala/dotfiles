@@ -31,7 +31,7 @@ export FZF_COMPLETION_TRIGGER="**"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export DOCKER_HOST="unix://${XDG_CONFIG_HOME}/colima/default/docker.sock"
 
-export PATH="/usr/local/go/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:$PATH"
@@ -49,7 +49,7 @@ for f in $XDG_CONFIG_HOME/zsh/*.nix.zsh; do
 done
 
 if [[ -f "$XDG_CONFIG_HOME/environment_variables" ]]; then
-  source "$XDG_CONFIG_HOME/environment_variables"
+  source "$XDG_CONFIG_HOME/.environment_variables"
 fi
 
 eval "$(starship init zsh)"

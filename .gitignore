@@ -5,7 +5,7 @@
 plugged/
 .netrwhist
 history.zsh_history
-glean.darwin.zsh
+glean.nix.zsh
 nvim/.config/lua/hans/scio.lua
 **/preferences/local/*
 **/Alfred.alfredpreferences/remote/*

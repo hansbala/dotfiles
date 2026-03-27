@@ -1,0 +1,63 @@
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+let mapleader=" "
+set scrolloff=8
+set incsearch
+set number
+set relativenumber
+
+" Better navigation
+nnoremap J 10j
+nnoremap K 10k
+vnoremap J 10j
+vnoremap K 10k
+
+" don't lose selection when indenting
+vnoremap < <gv
+vnoremap > >gv
+vnoremap = =gv
+" don't overwrite register when pasting over selection
+vnoremap p pgvy
+
+" make Y behave like D and C, yanking till end of line
+map Y y$
+
+" Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+" Intellij specific actions
+
+" Manipulate ~/.ideavimrc
+map <leader>ve :e ~/.ideavimrc<CR>
+map <leader>vr :source ~/.ideavimrc<CR>
+
+" TODO: Fix this
+" Go to implementation is not enabled by default
+nmap gi <Action>(GoToImplementation)
+
+map gh <Action>(ShowErrorDescription)
+map <leader>a <Action>(GoToAction)
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>B <Action>(Debug)
+map <leader>fm <Action>(FileStructurePopup)
+map <leader>g <Action>(Annotate)
+map <leader>rr <Action>(RenameElement)
+map <leader>cp <Action>(CopyContentRootPath)
+
+" Bazel actions
+map <leader>sy <Action>(Blaze.IncrementalSyncProject)
+
+" IntelliJ windows
+map <leader>wr <Action>(ActivateRunToolWindow)
+map <leader>wp <Action>(ActivateProblemsViewToolWindow)
+map <leader>wd <Action>(ActivateDebugToolWindow)
+
+" copilot
+map <leader>cc <Action>(ActivateGitHubCopilotChatToolWindow)
+map <leader>cs <Action>(copilot.enableCopilot)
+map <leader>css <Action(copilot.disableCopilot)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+
+" Find more examples here: https://jb.gg/share-ideavimrc
