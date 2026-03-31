@@ -50,3 +50,9 @@ function gpub {
 function nr {
   nix develop --command "$@"
 }
+
+function lines {
+  local base=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed "s@^refs/remotes/origin/@@")
+  [ -z "$base" ] && base=$(git branch -l main master 2>/dev/null | head -1 | tr -d '* ')
+  git diff --stat $(git merge-base "$base" HEAD)
+}
