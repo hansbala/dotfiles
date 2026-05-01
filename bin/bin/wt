@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+# wt — git worktree + tmux session manager
+set -euo pipefail
+
+main_repo() {
+  local common; common=$(git rev-parse --git-common-dir 2>/dev/null) || return 1
+  (cd "$(dirname "$common")" && pwd)
+}
+repo_name() { basename "$(main_repo)"; }
+wt_path()   { echo "$(dirname "$(main_repo)")/$(repo_name).$1"; }
+sanitize()  { echo "${1//[\/.]/-}"; }   # replace / and . with -
+sess_name() { echo "$(repo_name)_$(sanitize "$1")"; }
+
+attach_or_switch() {
+  local s=$1
+  if [[ -n "${TMUX:-}" ]]; then tmux switch-client -t "=$s"
+  else                          tmux attach -t "=$s"
+  fi
+}
+
+cmd_new() {
+  local name=${1:?usage: wt new <branch> [base-ref]}
+  local base=${2:-origin/master}
+  local repo path s
+  repo=$(main_repo); path=$(wt_path "$name"); s=$(sess_name "$name")
+
+  if [[ ! -d "$path" ]]; then
+    git -C "$repo" fetch origin "${base#origin/}" --quiet 2>/dev/null || true
+    git -C "$repo" worktree add "$path" -b "$name" "$base"
+    [[ -x "$repo/.wt-hooks/post-create" ]] && (cd "$path" && "$repo/.wt-hooks/post-create")
+  fi
+
+  tmux has-session -t "=$s" 2>/dev/null || tmux new-session -d -s "$s" -c "$path"
+  attach_or_switch "$s"
+}
+
+cmd_rm() {
+  local name=${1:?usage: wt rm <branch>}
+  local repo path s
+  repo=$(main_repo); path=$(wt_path "$name"); s=$(sess_name "$name")
+
+  if [[ -n "${TMUX:-}" ]] && [[ "$(tmux display-message -p '#S')" == "$s" ]]; then
+    local other; other=$(tmux list-sessions -F '#S' 2>/dev/null | grep -v "^$s$" | head -1 || true)
+    [[ -n "$other" ]] && tmux switch-client -t "=$other"
+  fi
+  tmux kill-session -t "=$s" 2>/dev/null || true
+  git -C "$repo" worktree remove --force "$path" 2>/dev/null || rm -rf "$path"
+  git -C "$repo" branch -D "$name" 2>/dev/null || true
+  echo "removed: $name"
+}
+
+cmd_ls() {
+  echo "── worktrees ──";  git -C "$(main_repo)" worktree list
+  echo; echo "── sessions ──"; tmux list-sessions 2>/dev/null || echo "(none)"
+}
+
+cmd_switch() {
+  local s
+  s=$(tmux list-sessions -F '#S' 2>/dev/null \
+        | fzf --prompt='session> ' --height=40% --border --reverse) || return 0
+  attach_or_switch "$s"
+}
+
+cmd_open() {
+  local repo; repo=$(main_repo)
+  local query=${1:-} picked path branch s
+  local list
+  list=$(git -C "$repo" worktree list --porcelain | awk '
+    /^worktree /{wt=$2}
+    /^branch /  {sub("refs/heads/","",$2); printf "%s\t%s\n", wt, $2}
+    /^detached/ {printf "%s\t(detached)\n", wt}')
+
+  if [[ -z "$query" ]]; then
+    picked=$(printf '%s\n' "$list" | fzf --with-nth=2 --delimiter=$'\t' \
+                                          --prompt='worktree> ' --height=40% --reverse) || return 0
+  else
+    picked=$(printf '%s\n' "$list" | awk -F'\t' -v q="$query" \
+              '$2==q || $1 ~ q {print; exit}')
+    [[ -z "$picked" ]] && { echo "no match for: $query"; return 1; }
+  fi
+
+  path=${picked%%$'\t'*}
+  branch=${picked##*$'\t'}
+  s=$(sess_name "$branch")
+
+  tmux has-session -t "=$s" 2>/dev/null || tmux new-session -d -s "$s" -c "$path"
+  attach_or_switch "$s"
+}
+
+case "${1:-}" in
+  new)        shift; cmd_new    "$@" ;;
+  rm)         shift; cmd_rm     "$@" ;;
+  ls)         shift; cmd_ls     "$@" ;;
+  s|switch)   shift; cmd_switch "$@" ;;
+  open|o)     shift; cmd_open   "$@" ;;
+  *) echo "usage: wt {new|rm|ls|s|open} ..."; exit 1 ;;
+esac
