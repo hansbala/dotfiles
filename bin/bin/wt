@@ -39,13 +39,16 @@ cmd_rm() {
   local repo path s
   repo=$(main_repo); path=$(wt_path "$name"); s=$(sess_name "$name")
 
+  # Remove worktree + branch first — killing our own tmux session below
+  # would terminate this script mid-flight if we did it the other way around.
+  git -C "$repo" worktree remove --force "$path" 2>/dev/null || rm -rf "$path"
+  git -C "$repo" branch -D "$name" 2>/dev/null || true
+
   if [[ -n "${TMUX:-}" ]] && [[ "$(tmux display-message -p '#S')" == "$s" ]]; then
     local other; other=$(tmux list-sessions -F '#S' 2>/dev/null | grep -v "^$s$" | head -1 || true)
     [[ -n "$other" ]] && tmux switch-client -t "=$other"
   fi
   tmux kill-session -t "=$s" 2>/dev/null || true
-  git -C "$repo" worktree remove --force "$path" 2>/dev/null || rm -rf "$path"
-  git -C "$repo" branch -D "$name" 2>/dev/null || true
   echo "removed: $name"
 }
 
