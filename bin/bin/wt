@@ -11,6 +11,14 @@ wt_path()   { echo "$(dirname "$(main_repo)")/$(repo_name).$1"; }
 sanitize()  { echo "${1//[\/.]/-}"; }   # replace / and . with -
 sess_name() { echo "$(repo_name)_$(sanitize "$1")"; }
 
+default_base() {
+  local repo; repo=$(main_repo)
+  for ref in main master; do
+    git -C "$repo" rev-parse --verify --quiet "origin/$ref" >/dev/null && { echo "origin/$ref"; return; }
+  done
+  echo "origin/master"
+}
+
 attach_or_switch() {
   local s=$1
   if [[ -n "${TMUX:-}" ]]; then tmux switch-client -t "=$s"
@@ -20,7 +28,7 @@ attach_or_switch() {
 
 cmd_new() {
   local name=${1:?usage: wt new <branch> [base-ref]}
-  local base=${2:-origin/master}
+  local base=${2:-$(default_base)}
   local repo path s
   repo=$(main_repo); path=$(wt_path "$name"); s=$(sess_name "$name")
 
