@@ -1,11 +1,10 @@
+# Cross-platform exports
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
-
 export EDITOR='nvim'
 export DOTFILES_LOCATION="$HOME/workspace/dotfiles"
-
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export GOPATH="$XDG_DATA_HOME/go"
@@ -19,27 +18,26 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export OLLAMA_HOME="$XDG_DATA_HOME/ollama"
 export PUB_CACHE="$XDG_DATA_HOME/pub-cache"
 export CP_HOME_DIR="$XDG_CONFIG_HOME/cocoapods"
-
 export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
 export NODE_REPL_HISTORY="$XDG_STATE_HOME/node_repl_history"
 export LESSHISTFILE="-"
-
-export XAUTHORITY="$XDG_CONFIG_HOME/Xauthority"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
 export FZF_COMPLETION_TRIGGER="**"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-export DOCKER_HOST="unix://${XDG_CONFIG_HOME}/colima/default/docker.sock"
-
-export PATH="$GOPATH/bin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:$PATH"
 export PATH="$CARGO_HOME/bin:$GOPATH/bin:$PNPM_HOME:$HOME/.local/bin:$HOME/bin:$PATH"
-
 export HISTFILE="$XDG_CONFIG_HOME/zsh/history.zsh_history"
 export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
+# macOS only
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
+  export DOCKER_HOST="unix://${XDG_CONFIG_HOME}/colima/default/docker.sock"
+  export XAUTHORITY="$XDG_CONFIG_HOME/Xauthority"
+  export PATH="/opt/homebrew/bin:$PATH"
+  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+  export PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:$PATH"
+fi
+
 setopt share_history
 setopt inc_append_history
 setopt hist_ignore_all_dups
