@@ -1,81 +1,21 @@
-command_timeout = 2000
+command_timeout = 500
 
-# TODO: Figure out how to add gcloud conditionally
 format = """
 [┌─>](bold green) \
 $username\
 $hostname\
-$shlvl\
-$singularity\
-$kubernetes\
 $directory\
-$vcsh\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$hg_branch\
 $python\
 $nix_shell\
-$conda\
-$memory_usage\
-$aws\
-$openstack\
-$azure\
-$env_var\
-$crystal\
-$custom\
 $sudo\
 $cmd_duration\
-$battery\
 $line_break\
 $jobs\
-$time\
 $status\
-$shell\
 [└─>](bold green) """
-
-# format = """
-# $username\
-# $directory\
-# $git_branch\
-# $git_commit\
-# $git_state\
-# $git_metrics\
-# $git_status\
-# $python\
-# $nix_shell\
-# $env_var\
-# $crystal\
-# $custom\
-# $cmd_duration\
-# $line_break\
-# $jobs\
-# $battery\
-# $time\
-# $status\
-# $shell"""
-
-[character]
-format = "$"
-
-[git_status]
-#symbol=''
-#conflicted = "🚩"
-#ahead = "🚀"
-#behind = "🐢"
-#diverged = "🚧"
-#up_to_date = "✓"
-#untracked = "🆕"
-#stashed = "📦"
-#modified = "📝"
-#staged = '[++\($count\)](green)'
-#renamed = "👅"
-#deleted = "🗑"
-
-[gcloud]
-format = '[(\($project\))]($style) '
-[gcloud.project_aliases]
-#dev-sandbox-334901 = 'glean-dev'
 
