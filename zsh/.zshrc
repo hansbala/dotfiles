@@ -44,6 +44,27 @@ setopt share_history
 setopt inc_append_history
 setopt hist_ignore_all_dups
 
+bindkey -v
+export KEYTIMEOUT=1
+bindkey -M viins '^?' backward-delete-char
+bindkey -M viins '^A' beginning-of-line
+bindkey -M viins '^E' end-of-line
+bindkey -M viins '^P' up-line-or-history
+bindkey -M viins '^N' down-line-or-history
+bindkey -M viins '^W' backward-kill-word
+
+# Cursor: solid block in normal mode, blinking block in insert mode
+function zle-keymap-select zle-line-init {
+  case "${KEYMAP}" in
+    vicmd)      printf '\e[2 q' ;;
+    viins|main) printf '\e[1 q' ;;
+  esac
+}
+function zle-line-finish { printf '\e[1 q' }
+zle -N zle-keymap-select
+zle -N zle-line-init
+zle -N zle-line-finish
+
 for f in $XDG_CONFIG_HOME/zsh/*.nix.zsh; do
   source $f
 done
