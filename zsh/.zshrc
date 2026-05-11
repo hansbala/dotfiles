@@ -69,7 +69,7 @@ for f in $XDG_CONFIG_HOME/zsh/*.nix.zsh; do
   source $f
 done
 
-if [[ -f "$XDG_CONFIG_HOME/environment_variables" ]]; then
+if [[ -f "$XDG_CONFIG_HOME/.environment_variables" ]]; then
   source "$XDG_CONFIG_HOME/.environment_variables"
 fi
 
