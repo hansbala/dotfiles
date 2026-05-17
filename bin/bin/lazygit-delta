@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+case "$(color-scheme)" in
+  dark) appearance="--dark" ;;
+  *) appearance="--light" ;;
+esac
+
+exec delta "$appearance" --side-by-side --paging=never "$@"

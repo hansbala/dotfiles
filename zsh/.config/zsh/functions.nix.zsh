@@ -34,12 +34,28 @@ tm() {
              tmux $change -t "$session" || echo "No sessions found."
 }
 
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  function lightmode() {
-    osascript -l JavaScript -e "Application('System Events').appearancePreferences.darkMode = false" &> /dev/null
-  }
+lightmode() {
+  case "$(uname -s)" in
+    Darwin)
+      osascript -l JavaScript -e "Application('System Events').appearancePreferences.darkMode = false" &> /dev/null
+      ;;
+    Linux)
+      if command -v gsettings >/dev/null 2>&1; then
+        gsettings set org.gnome.desktop.interface color-scheme prefer-light
+      fi
+      ;;
+  esac
+}
 
-  function darkmode() {
-    osascript -l JavaScript -e "Application('System Events').appearancePreferences.darkMode = true" &> /dev/null
-  }
-fi
+darkmode() {
+  case "$(uname -s)" in
+    Darwin)
+      osascript -l JavaScript -e "Application('System Events').appearancePreferences.darkMode = true" &> /dev/null
+      ;;
+    Linux)
+      if command -v gsettings >/dev/null 2>&1; then
+        gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+      fi
+      ;;
+  esac
+}

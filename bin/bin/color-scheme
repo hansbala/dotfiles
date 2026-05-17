@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+case "$(uname -s)" in
+  Darwin)
+    if defaults read -g AppleInterfaceStyle >/dev/null 2>&1; then
+      printf 'dark\n'
+    else
+      printf 'light\n'
+    fi
+    ;;
+  Linux)
+    if command -v gsettings >/dev/null 2>&1; then
+      case "$(gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null || true)" in
+        *prefer-dark*) printf 'dark\n'; exit 0 ;;
+        *prefer-light*) printf 'light\n'; exit 0 ;;
+      esac
+
+      case "$(gsettings get org.gnome.desktop.interface gtk-theme 2>/dev/null || true)" in
+        *-dark* | *-Dark*) printf 'dark\n'; exit 0 ;;
+      esac
+    fi
+
+    printf 'light\n'
+    ;;
+  *)
+    printf 'light\n'
+    ;;
+esac
