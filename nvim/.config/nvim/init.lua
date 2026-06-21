@@ -10,6 +10,7 @@ vim.pack.add({
   "https://github.com/EdenEast/nightfox.nvim",
   "https://github.com/bluz71/vim-moonfly-colors",
   "https://github.com/f-person/auto-dark-mode.nvim",
+  "https://github.com/sindrets/diffview.nvim",
 })
 plugin_lspconfig = require('lspconfig')
 plugin_mason = require('mason')
@@ -94,6 +95,7 @@ vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-n>', ':NvimTreeFindFileToggle<CR>')
+vim.keymap.set('n', '<leader>dd', ':DiffviewOpen<CR>')
 vim.keymap.set('n', '<leader>ff', plugin_fzf_lua.files, {})
 vim.keymap.set('n', '<leader>fa', function()
   plugin_fzf_lua.files({
@@ -103,6 +105,7 @@ end, { desc = "FZF: Find all files (including hidden/unignored)" })
 vim.keymap.set('n', '<leader>fg', plugin_fzf_lua.live_grep, {})
 vim.keymap.set('n', '<leader>/', plugin_fzf_lua.lines, {})
 vim.keymap.set('n', '<C-t>', ':tabnew<CR>', {})
+vim.keymap.set('n', '<leader>w', ':tabclose<CR>')
 vim.keymap.set('n', '<leader>tn', ':tabn<CR>', {})
 vim.keymap.set('n', '[t', ':tabp<CR>', {})
 vim.keymap.set('n', ']t', ':tabn<CR>', {})
