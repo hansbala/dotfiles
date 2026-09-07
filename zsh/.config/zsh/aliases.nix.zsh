@@ -10,6 +10,7 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts" --show-progress'
 alias lg='lazygit'
 alias nv='cd $HOME/.config/nvim && nvim'
 alias dotfiles='cd $DOTFILES_LOCATION'
+alias codex='codex --yolo'
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
   alias l='eza --long --header --git --ignore-glob .DS_Store --icons'
