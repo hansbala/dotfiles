@@ -1,5 +1,5 @@
 git:
   autoFetch: false
   autoRefresh: false
-  pagers:
-    - pager: lazygit-delta
+  diffRenderers:
+    - command: lazygit-delta
