@@ -17,6 +17,7 @@ plugin_mason = require('mason')
 plugin_blink_cmp = require('blink.cmp')
 plugin_nvim_tree = require('nvim-tree')
 plugin_fzf_lua = require('fzf-lua')
+plugin_diffview = require('diffview')
 plugin_auto_darkmode = require('auto-dark-mode')
 
 -- Plugin configuration
@@ -52,14 +53,18 @@ plugin_fzf_lua.setup({
     }
   }
 })
+plugin_diffview.setup({
+  use_icons = false,
+})
 plugin_auto_darkmode.setup({
   update_interval = 1000,
+  -- Only load the colorscheme here: setting 'background' first resets
+  -- `vim.g.colors_name`, which makes nightfox skip its `hi clear` and leaves
+  -- plugins (e.g. diffview) stuck with the old theme's highlight colors.
   set_dark_mode = function()
-    vim.api.nvim_set_option_value('background', 'dark', {})
     vim.cmd('colorscheme moonfly')
   end,
   set_light_mode = function()
-    vim.api.nvim_set_option_value('background', 'light', {})
     vim.cmd('colorscheme dayfox')
   end,
 })
@@ -96,6 +101,12 @@ vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-n>', ':NvimTreeFindFileToggle<CR>')
 vim.keymap.set('n', '<leader>dd', ':DiffviewOpen<CR>')
+vim.keymap.set('n', '<leader>dr', function()
+  local view = require('diffview.lib').get_current_view()
+  local selected = view and view.panel.cur_file and view.panel.cur_file.absolute_path or nil
+  vim.cmd('DiffviewClose')
+  require('diffview').open(selected and { '--selected-file=' .. selected } or {})
+end, { desc = 'Diffview: full refresh (reload files from disk)' })
 vim.keymap.set('n', '<leader>ff', plugin_fzf_lua.files, {})
 vim.keymap.set('n', '<leader>fa', function()
   plugin_fzf_lua.files({
@@ -106,6 +117,7 @@ vim.keymap.set('n', '<leader>fg', plugin_fzf_lua.live_grep, {})
 vim.keymap.set('n', '<leader>/', plugin_fzf_lua.lines, {})
 vim.keymap.set('n', '<C-t>', ':tabnew<CR>', {})
 vim.keymap.set('n', '<leader>w', ':tabclose<CR>')
+vim.keymap.set('n', '<leader>q', ':qa<CR>')
 vim.keymap.set('n', '<leader>tn', ':tabn<CR>', {})
 vim.keymap.set('n', '[t', ':tabp<CR>', {})
 vim.keymap.set('n', ']t', ':tabn<CR>', {})

@@ -59,3 +59,11 @@ darkmode() {
       ;;
   esac
 }
+
+# Open Neovim directly in diffview. Pass rev/options through if needed.
+#   vd              -> working tree changes
+#   vd --cached     -> staged changes
+#   vd HEAD~3       -> diff against a revision
+vd() {
+  nvim -c "DiffviewOpen $*"
+}
