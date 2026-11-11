@@ -12,6 +12,7 @@ alias nv='cd $HOME/.config/nvim && nvim'
 alias dotfiles='cd $DOTFILES_LOCATION'
 alias codex='codex --yolo'
 alias opencode='opencode --auto'
+alias hd='hunk diff --watch'
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
   alias l='eza --long --header --git --ignore-glob .DS_Store --icons'
