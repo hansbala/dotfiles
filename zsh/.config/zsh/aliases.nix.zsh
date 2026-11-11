@@ -23,4 +23,5 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   alias speed_test='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
   alias tmux-copy="pbcopy"
   alias opencode-dash='open /Users/hans/workspace/opencode-dash/build/OpenCodeDash.app'
+  alias odt='/Users/hans/workspace/opencode-dash/build/opencode-dash'
 fi
