@@ -77,8 +77,8 @@ esac
 [ -n "$client" ] || client="$(tmux display-message -p '#{client_name}')"
 
 selected=$(
-  tmux list-sessions -F '#{session_activity}	#{session_name}' |
-    sort -rn |
+  tmux list-sessions -F '#{session_created}	#{session_name}' |
+    sort -n |
     cut -f2- |
     fzf --reverse --no-sort --info=hidden \
       --height=100% --border=none \
