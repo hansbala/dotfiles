@@ -38,11 +38,17 @@ export SAVEHIST=$HISTSIZE
 # macOS only
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
-  export DOCKER_HOST="unix://${XDG_CONFIG_HOME}/colima/default/docker.sock"
   export XAUTHORITY="$XDG_CONFIG_HOME/Xauthority"
   export PATH="/opt/homebrew/bin:$PATH"
   export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
   export PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:$PATH"
+
+  # Colima's Homebrew LaunchAgent starts without XDG_CONFIG_HOME, so it always
+  # uses ~/.colima (the macOS default). Keep the shell on that same directory
+  # and cache; otherwise Docker points at a socket the daemon never creates and
+  # colima warns about the ~/.colima vs $XDG_CONFIG_HOME mismatch.
+  export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+  colima() { XDG_CONFIG_HOME= XDG_CACHE_HOME= command colima "$@"; }
 fi
 
 setopt share_history
