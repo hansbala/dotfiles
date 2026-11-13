@@ -1,3 +1,10 @@
+# Nix shell integration.
+# macOS restores the OS-owned /etc/zshrc on major upgrades, which drops the
+# PATH hook the Nix installer adds. Source it from a user-owned file instead.
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
 # Cross-platform exports
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
