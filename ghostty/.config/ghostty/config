@@ -1,4 +1,4 @@
-theme = dark:Monokai Soda,light:Raycast Light
+theme = dark:Monokai Classic,light:Raycast Light
 font-family = TX-02
 gtk-titlebar = false
 font-size = 24

@@ -11,6 +11,8 @@ vim.pack.add({
   "https://github.com/bluz71/vim-moonfly-colors",
   "https://github.com/f-person/auto-dark-mode.nvim",
   "https://github.com/sindrets/diffview.nvim",
+  "https://github.com/khoido2003/monokai-v2.nvim",
+  "https://github.com/nvim-tree/nvim-web-devicons",
 })
 plugin_lspconfig = require('lspconfig')
 plugin_mason = require('mason')
@@ -19,6 +21,7 @@ plugin_nvim_tree = require('nvim-tree')
 plugin_fzf_lua = require('fzf-lua')
 plugin_diffview = require('diffview')
 plugin_auto_darkmode = require('auto-dark-mode')
+plugin_nvim_web_devicons = require('nvim-web-devicons')
 
 -- Plugin configuration
 plugin_mason.setup({})
@@ -47,6 +50,7 @@ plugin_nvim_tree.setup({
   },
 })
 plugin_fzf_lua.setup({
+  fzf_colors = true,
   keymap = {
     fzf = {
       ["ctrl-q"] = "select-all+accept",
@@ -62,12 +66,13 @@ plugin_auto_darkmode.setup({
   -- `vim.g.colors_name`, which makes nightfox skip its `hi clear` and leaves
   -- plugins (e.g. diffview) stuck with the old theme's highlight colors.
   set_dark_mode = function()
-    vim.cmd('colorscheme moonfly')
+    vim.cmd('colorscheme monokai-pro-classic')
   end,
   set_light_mode = function()
     vim.cmd('colorscheme dayfox')
   end,
 })
+plugin_nvim_web_devicons.setup({})
 
 -- Options
 vim.g.mapleader = ' '
