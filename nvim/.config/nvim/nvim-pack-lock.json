@@ -4,10 +4,6 @@
       "rev": "e300259ec777a40b4b9e3c8e6ade203e78d15881",
       "src": "https://github.com/f-person/auto-dark-mode.nvim"
     },
-    "blink-cmp-copilot": {
-      "rev": "439cff78780c033aa23cf061d7315314b347e3c1",
-      "src": "https://github.com/giuxtaposition/blink-cmp-copilot"
-    },
     "blink.cmp": {
       "rev": "49d39fda6350d7f789d1da1053e86c9e256f8108",
       "src": "https://github.com/saghen/blink.cmp"
@@ -15,10 +11,6 @@
     "blink.lib": {
       "rev": "f55df8a6e0a7acccf45ef0ffbb4ce46110fcf7d0",
       "src": "https://github.com/saghen/blink.lib"
-    },
-    "copilot.lua": {
-      "rev": "81d289a8ce5d4ee1dea9b1c8ee4ac376b2e27a5f",
-      "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "diffview.nvim": {
       "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
@@ -36,10 +28,6 @@
       "rev": "8eb59104a6b18b60255f374ca8fd64ade0175e58",
       "src": "https://github.com/khoido2003/monokai-v2.nvim"
     },
-    "nightfox.nvim": {
-      "rev": "4dacd3f0185a2227bdf3b6c0975a8f0bf87cac9a",
-      "src": "https://github.com/EdenEast/nightfox.nvim"
-    },
     "nvim-lspconfig": {
       "rev": "615d7b2712efb2f530a83a9d0466acafba6b1d6f",
       "src": "https://github.com/neovim/nvim-lspconfig"
@@ -48,29 +36,17 @@
       "rev": "b2aadda94b107480c48e548d6db51c6840b7b33c",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
-    "nvim-treesitter": {
-      "rev": "42fc28ba918343ebfd5565147a42a26580579482",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
-    },
     "nvim-web-devicons": {
       "rev": "0dc0cfb0c6858041174a53c7aa4adaf65e994b3c",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
-    "tokyonight.nvim": {
-      "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
-      "src": "https://github.com/folke/tokyonight.nvim"
-    },
-    "ts-comments.nvim": {
-      "rev": "a59d6092213447450191122c9346f309161504cb",
-      "src": "https://github.com/folke/ts-comments.nvim"
+    "raycast.nvim": {
+      "rev": "8c34a7be59ca2e4a67a3c9ffad830156a74817b6",
+      "src": "https://github.com/hansbala/raycast.nvim"
     },
     "vim-fugitive": {
       "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
       "src": "https://github.com/tpope/vim-fugitive"
-    },
-    "vim-moonfly-colors": {
-      "rev": "2c883835f5b7b380a0a9e80695c420f7efebdfe4",
-      "src": "https://github.com/bluz71/vim-moonfly-colors"
     }
   }
 }

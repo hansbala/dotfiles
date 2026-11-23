@@ -1,4 +1,11 @@
--- Plugins
+-------------------------------------------------------
+-- Plugins may use leader so necessary to be first.
+-------------------------------------------------------
+vim.g.mapleader = ' '
+
+-------------------------------------------------------
+-- Plugin Defs
+-------------------------------------------------------
 vim.pack.add({
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/williamboman/mason.nvim",
@@ -7,24 +14,51 @@ vim.pack.add({
   "https://github.com/ibhagwan/fzf-lua",
   "https://github.com/nvim-tree/nvim-tree.lua",
   "https://github.com/tpope/vim-fugitive",
-  "https://github.com/EdenEast/nightfox.nvim",
-  "https://github.com/bluz71/vim-moonfly-colors",
   "https://github.com/f-person/auto-dark-mode.nvim",
   "https://github.com/sindrets/diffview.nvim",
-  "https://github.com/khoido2003/monokai-v2.nvim",
   "https://github.com/nvim-tree/nvim-web-devicons",
+  "https://github.com/khoido2003/monokai-v2.nvim",
+  "https://github.com/hansbala/raycast.nvim"
 })
-plugin_lspconfig = require('lspconfig')
-plugin_mason = require('mason')
-plugin_blink_cmp = require('blink.cmp')
-plugin_nvim_tree = require('nvim-tree')
-plugin_fzf_lua = require('fzf-lua')
-plugin_diffview = require('diffview')
-plugin_auto_darkmode = require('auto-dark-mode')
-plugin_nvim_web_devicons = require('nvim-web-devicons')
 
--- Plugin configuration
+-------------------------------------------------------
+-- Plugin Configuration
+-------------------------------------------------------
+local plugin_mason = require('mason')
+local plugin_mason_registry = require('mason-registry')
+local plugin_blink_cmp = require('blink.cmp')
+local plugin_nvim_tree = require('nvim-tree')
+local plugin_fzf_lua = require('fzf-lua')
+local plugin_diffview = require('diffview')
+local plugin_auto_darkmode = require('auto-dark-mode')
+local plugin_nvim_web_devicons = require('nvim-web-devicons')
+
+-- LSP Stuff
 plugin_mason.setup({})
+local lsp_packages = {
+  gopls = 'gopls',
+  ts_ls = 'typescript-language-server',
+  lua_ls = 'lua-language-server',
+}
+local missing_lsp_packages = vim.tbl_filter(
+  function(pkg) return not plugin_mason_registry.is_installed(pkg) end,
+  vim.tbl_values(lsp_packages)
+)
+if #missing_lsp_packages > 0 then
+  vim.cmd.MasonInstall({ args = missing_lsp_packages })
+end
+-- Autocomplete for neovim :)
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      runtime = { version = 'LuaJIT' },
+      workspace = { library = { vim.env.VIMRUNTIME .. '/lua' } },
+    },
+  },
+})
+vim.lsp.enable(vim.tbl_keys(lsp_packages))
+
+-- Other plugins
 plugin_blink_cmp.setup({
   keymap = { preset = "enter" },
   sources = {
@@ -37,7 +71,7 @@ plugin_blink_cmp.setup({
   fuzzy = { implementation = "lua" },
 })
 plugin_nvim_tree.setup({
-  sort_by = "case_sensitive",
+  sort = { sorter = 'case_sensitive' },
   view = {
     width = 30,
   },
@@ -62,87 +96,127 @@ plugin_diffview.setup({
 })
 plugin_auto_darkmode.setup({
   update_interval = 1000,
-  -- Only load the colorscheme here: setting 'background' first resets
-  -- `vim.g.colors_name`, which makes nightfox skip its `hi clear` and leaves
-  -- plugins (e.g. diffview) stuck with the old theme's highlight colors.
   set_dark_mode = function()
-    vim.cmd('colorscheme monokai-pro-classic')
+    vim.cmd.colorscheme('monokai-pro-classic')
   end,
   set_light_mode = function()
-    vim.cmd('colorscheme dayfox')
+    vim.cmd.colorscheme('raycast-light')
   end,
 })
 plugin_nvim_web_devicons.setup({})
 
+-------------------------------------------------------
 -- Options
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+-------------------------------------------------------
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.wrap = false
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.expandtab = true
-vim.o.signcolumn = "yes"
-vim.o.cursorline = true
-vim.o.colorcolumn = "100"
-vim.o.splitright = true
-vim.o.splitbelow = true
-vim.o.winborder = 'rounded'
-vim.cmd [[ set noswapfile ]]
-vim.cmd [[ set nowrap ]]
-vim.wo.number = true
-vim.wo.relativenumber = true
-vim.cmd[[colorscheme carbonfox]]
-vim.cmd[[hi statusline guibg=NONE]]
+vim.opt.signcolumn = "yes"
+vim.opt.cursorline = true
+vim.opt.colorcolumn = "100"
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.swapfile = false
 
+-------------------------------------------------------
 -- Keymaps
-vim.keymap.set('n', '<leader>h', ':nohl<CR>')
-vim.keymap.set('n', 'K', '7k')
-vim.keymap.set('n', 'J', '7j')
-vim.keymap.set('v', 'K', '7k')
-vim.keymap.set('v', 'J', '7j')
-vim.keymap.set('n', '<C-h>', '<C-w>h')
-vim.keymap.set('n', '<C-l>', '<C-w>l')
-vim.keymap.set('n', '<C-j>', '<C-w>j')
-vim.keymap.set('n', '<C-k>', '<C-w>k')
-vim.keymap.set('n', '<C-n>', ':NvimTreeFindFileToggle<CR>')
-vim.keymap.set('n', '<leader>dd', ':DiffviewOpen<CR>')
-vim.keymap.set('n', '<leader>dr', function()
+-------------------------------------------------------
+local map = vim.keymap.set
+
+-- Keymap Helpers.
+local function refresh_diffview()
   local view = require('diffview.lib').get_current_view()
-  local selected = view and view.panel.cur_file and view.panel.cur_file.absolute_path or nil
-  vim.cmd('DiffviewClose')
-  require('diffview').open(selected and { '--selected-file=' .. selected } or {})
-end, { desc = 'Diffview: full refresh (reload files from disk)' })
-vim.keymap.set('n', '<leader>ff', plugin_fzf_lua.files, {})
-vim.keymap.set('n', '<leader>fa', function()
-  plugin_fzf_lua.files({
-    rg_opts = "--color=never --files --hidden --follow --no-ignore"
-  })
-end, { desc = "FZF: Find all files (including hidden/unignored)" })
-vim.keymap.set('n', '<leader>fg', plugin_fzf_lua.live_grep, {})
-vim.keymap.set('n', '<leader>/', plugin_fzf_lua.lines, {})
-vim.keymap.set('n', '<C-t>', ':tabnew<CR>', {})
-vim.keymap.set('n', '<leader>w', ':tabclose<CR>')
-vim.keymap.set('n', '<leader>q', ':qa<CR>')
-vim.keymap.set('n', '<leader>tn', ':tabn<CR>', {})
-vim.keymap.set('n', '[t', ':tabp<CR>', {})
-vim.keymap.set('n', ']t', ':tabn<CR>', {})
-vim.keymap.set('n', '<leader>g', ':Git blame<CR>')
-vim.api.nvim_set_keymap('n', '<leader>y', '"+y', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>Y', '"+Y', { noremap = true, silent = true })
-vim.lsp.enable({ 'gopls', 'ts_ls', 'lua_ls', 'ruff', 'basedpyright' })
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
-vim.keymap.set("n", "gh", vim.lsp.buf.hover)
-vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
-vim.keymap.set("n", "gr", vim.lsp.buf.references)
-vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename)
-vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help)
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
-vim.keymap.set("v", "<leader>cp",
-  [[:<C-u>let @+ = expand('%:.') . '(' . line("'<") . '-' . line("'>") . ')' <CR>:echo "Path with lines copied!"<CR>]],
-  opts
+  local file = view and view.panel and view.panel.cur_file
+  local path = file and file.absolute_path
+
+  vim.cmd.DiffviewClose()
+  require('diffview').open(path and { '--selected-file=' .. path } or {})
+end
+
+local function find_all_files()
+  plugin_fzf_lua.files({ hidden = true, no_ignore = true, follow = true })
+end
+
+local function copy_path_with_lines()
+  local path = vim.fn.expand('%:.')
+  local anchor = vim.fn.line('v')
+  local cursor = vim.fn.line('.')
+  local first, last = math.min(anchor, cursor), math.max(anchor, cursor)
+
+  vim.fn.setreg('+', ('%s(%d-%d)'):format(path, first, last))
+  print('Path with lines copied!')
+end
+
+local function jump_diagnostic(count)
+  return function()
+    vim.diagnostic.jump({ count = count, float = true })
+  end
+end
+
+-- Movement
+map('n', 'K', '7k')
+map('n', 'J', '7j')
+map('v', 'K', '7k')
+map('v', 'J', '7j')
+-- Windows and tabs
+map('n', '<C-h>', '<C-w>h')
+map('n', '<C-j>', '<C-w>j')
+map('n', '<C-k>', '<C-w>k')
+map('n', '<C-l>', '<C-w>l')
+map('n', '<C-t>', '<Cmd>tabnew<CR>')
+map('n', '<leader>w', '<Cmd>tabclose<CR>')
+map('n', '<leader>q', '<Cmd>qa<CR>')
+map('n', '[t', '<Cmd>tabprevious<CR>')
+map('n', ']t', '<Cmd>tabnext<CR>')
+-- Files and search
+map('n', '<C-n>', '<Cmd>NvimTreeFindFileToggle<CR>')
+map('n', '<leader>h', '<Cmd>nohlsearch<CR>')
+map('n', '<leader>ff', plugin_fzf_lua.files)
+map('n', '<leader>fa', find_all_files)
+map('n', '<leader>fg', plugin_fzf_lua.live_grep)
+map('n', '<leader>/', plugin_fzf_lua.lines)
+-- Git
+map('n', '<leader>g', '<Cmd>Git blame<CR>')
+map('n', '<leader>dd', '<Cmd>DiffviewOpen<CR>')
+map('n', '<leader>dr', refresh_diffview)
+-- Clipboard
+map('n', '<leader>y', '"+y')
+map('v', '<leader>y', '"+y')
+map('n', '<leader>Y', '"+Y')
+map('v', '<leader>cp', copy_path_with_lines)
+-- LSP and diagnostics
+map('n', 'gd', vim.lsp.buf.definition)
+map('n', 'gi', vim.lsp.buf.implementation)
+map('n', 'gh', vim.lsp.buf.hover)
+map('n', 'gr', vim.lsp.buf.references)
+map('n', '<leader>ca', vim.lsp.buf.code_action)
+map('n', '<leader>rr', vim.lsp.buf.rename)
+map('n', '<leader>fm', vim.lsp.buf.format)
+map('i', '<C-h>', vim.lsp.buf.signature_help)
+map('n', '<leader>vd', vim.diagnostic.open_float)
+map('n', '[d', jump_diagnostic(-1))
+map('n', ']d', jump_diagnostic(1))
+
+-------------------------------------------------------
+-- User commands
+-------------------------------------------------------
+-- Cleanup unused packages from vim.pack.
+  -- Remove once merged into release from upstream
+vim.api.nvim_create_user_command(
+  'PackClean',
+  function()
+    local unused = {}
+    for _, plugin in ipairs(vim.pack.get(nil, { info = false })) do
+      if not plugin.active then
+        table.insert(unused, plugin.spec.name)
+      end
+    end
+    vim.pack.del(unused)
+  end,
+  {}
 )
+
