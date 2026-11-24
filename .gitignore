@@ -11,3 +11,5 @@ nvim/.config/lua/hans/scio.lua
 **/Alfred.alfredpreferences/remote/*
 **/Alfred.alfredpreferences/resources/*
 agents/.config/agents/skills/.system/*
+bin/bin/gl-*
+bin/bin/og
